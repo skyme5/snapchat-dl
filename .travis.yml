@@ -1,18 +1,21 @@
 language: python
 python:
-- 3.8
-- 3.7
-- 3.6
-- 3.5
-install: pip install -U tox-travis
-script: tox
+    - 3.8
+install:
+    - pip install -U tox-travis
+    - pip install codecov
+script:
+    - tox
+    - coverage run -m pytest tests
 deploy:
-  provider: pypi
-  distributions: sdist bdist_wheel
-  user: __token__
-  on:
-    tags: true
-    repo: skyme5/snapchat-dl
-    python: 3.8
-  password:
-    secure: mrze+Olw83sf8KkGQUShN2XL9bObPvjKFWUY6agBCbnDp0/QQtKvgWxDKM/fdI6DEEprJ+dep3YN9YBazgwhK5KPs+gT4Up6bxTrD/6rRvvNdHDh8uDYw4DJqOjXlzxt+T8MuXBty183/NYfCmpvSQLsX2GTp0Al23qHdXRUXhbUWEw6pj1rSVNiojaWlCmGRR77VJUHESDIYcMqsxuLIgrBgB5d07PZw92Gdbh6yKDdveCzWQbs3RFATtvzMvrHKlA9rZ7jxrn+2oDKeCfLapjWMC6d5T9JBTVBE2nHK6PH9uyEECa16p2khDE6HbO/Sadyu5mi85KgRXIUEhFcAERmoZpjMvPPYpVw3HPecZtsffDCTsQ9EPkLnv4C7mtajNCLtsx5cGjhOKCYAfkKQnTSuxn90HzC98pcXGFzDE8vHc0itFs1m7GagjJcJOTlHpd0CnX9zu1HCJvaao1GHaoj/63Z0Ox49K/ybh06D8IrZUE5j3zRwu0WYRHeq8kjbKJQtn6R+7+qy1ELxiQ6saYo97n9+J1kDSTxQeF977rCVu9d9fYXRP+MP63VaRjXpn0gMitw1JvDj1nAKTuoNTBfb2Y9R0nFFmt3gMxQZvtYeMzcwNU+A7Li5Jsx4jntQ9OxLkc5uX4AoWQHMmv8/0ADBNqZ9XbrVTiCsAOAGaI=
+    provider: pypi
+    distributions: sdist bdist_wheel
+    user: __token__
+    on:
+        tags: true
+        repo: skyme5/snapchat-dl
+        python: 3.8
+    password:
+        secure: mrze+Olw83sf8KkGQUShN2XL9bObPvjKFWUY6agBCbnDp0/QQtKvgWxDKM/fdI6DEEprJ+dep3YN9YBazgwhK5KPs+gT4Up6bxTrD/6rRvvNdHDh8uDYw4DJqOjXlzxt+T8MuXBty183/NYfCmpvSQLsX2GTp0Al23qHdXRUXhbUWEw6pj1rSVNiojaWlCmGRR77VJUHESDIYcMqsxuLIgrBgB5d07PZw92Gdbh6yKDdveCzWQbs3RFATtvzMvrHKlA9rZ7jxrn+2oDKeCfLapjWMC6d5T9JBTVBE2nHK6PH9uyEECa16p2khDE6HbO/Sadyu5mi85KgRXIUEhFcAERmoZpjMvPPYpVw3HPecZtsffDCTsQ9EPkLnv4C7mtajNCLtsx5cGjhOKCYAfkKQnTSuxn90HzC98pcXGFzDE8vHc0itFs1m7GagjJcJOTlHpd0CnX9zu1HCJvaao1GHaoj/63Z0Ox49K/ybh06D8IrZUE5j3zRwu0WYRHeq8kjbKJQtn6R+7+qy1ELxiQ6saYo97n9+J1kDSTxQeF977rCVu9d9fYXRP+MP63VaRjXpn0gMitw1JvDj1nAKTuoNTBfb2Y9R0nFFmt3gMxQZvtYeMzcwNU+A7Li5Jsx4jntQ9OxLkc5uX4AoWQHMmv8/0ADBNqZ9XbrVTiCsAOAGaI=
+after_success:
+    - codecov

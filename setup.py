@@ -19,7 +19,7 @@ requirements = list()
 with open("requirements.txt", "r") as file:
     requirements = [r for r in file.readlines() if len(r) > 0]
 
-test_requirements = []
+test_requirements = ["pytest"]
 
 setup(
     name="snapchat-dl",
@@ -32,14 +32,14 @@ setup(
     author_email="skyqutip@gmail.com",
     entry_points={"console_scripts": ["snapchat-dl=snapchat_dl.cli:main",],},
     include_package_data=True,
+    setup_requires=requirements,
     install_requires=requirements,
+    test_suite="tests",
+    tests_require=test_requirements,
     python_requires=">=3.5",
     keywords="snapchat-dl",
     license="MIT license",
     packages=find_packages(include=["snapchat_dl", "snapchat_dl.*"]),
-    setup_requires=requirements,
-    test_suite="tests",
-    tests_require=test_requirements,
     zip_safe=False,
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",

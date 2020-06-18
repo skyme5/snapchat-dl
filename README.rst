@@ -6,8 +6,13 @@ Snapchat Downloader
 .. image:: https://img.shields.io/pypi/v/snapchat-dl.svg
         :target: https://pypi.python.org/pypi/snapchat-dl
 
-.. image:: https://img.shields.io/travis/skyme5/snapchat-dl.svg
+.. image:: https://img.shields.io/travis/skyme5/snapchat-dl.svg?branch=master
         :target: https://travis-ci.com/skyme5/snapchat-dl
+        :alt: Build Status
+
+.. image:: https://codecov.io/gh/skyme5/snapchat-dl/branch/master/graph/badge.svg
+        :target: https://codecov.io/gh/skyme5/snapchat-dl
+        :alt: Code Coverage
 
 .. image:: https://readthedocs.org/projects/snapchat-dl/badge/?version=latest
         :target: https://snapchat-dl.readthedocs.io/en/latest/?badge=latest

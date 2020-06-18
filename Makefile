@@ -51,16 +51,16 @@ lint: ## check style with flake8
 	black snapchat_dl tests
 
 test: ## run tests quickly with the default Python
-	python setup.py test
+	pytest tests
 
 test-all: ## run tests on every Python version with tox
 	tox
 
 coverage: ## check code coverage quickly with the default Python
-	coverage run --source snapchat_dl setup.py test
-	coverage report -m
+	coverage run -m pytest tests
+	coverage report --include "snapchat_dl/*"
 	coverage html
-	# $(BROWSER) htmlcov/index.html
+	$(BROWSER) htmlcov/index.html
 
 docs-usage:
 	python.exe snapchat_dl/cli.py --help > USAGE.rst
@@ -71,13 +71,10 @@ docs: docs-usage## generate Sphinx HTML documentation, including API docs
 	sphinx-apidoc -o docs/ snapchat_dl
 	$(MAKE) -C docs clean
 	$(MAKE) -C docs html
-	# $(BROWSER) docs/_build/html/index.html
+	$(BROWSER) docs/_build/html/index.html
 
 servedocs: docs ## compile the docs watching for changes
 	watchmedo shell-command -p '*.rst' -c '$(MAKE) -C docs html' -R -D .
-
-release: dist ## package and upload a release
-	twine upload dist/*
 
 dist: clean ## builds source and wheel package
 	python setup.py sdist
