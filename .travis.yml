@@ -4,6 +4,7 @@ python:
 install:
     - pip install -U tox-travis
     - pip install codecov
+    - pip install -r requirements.txt
 script:
     - tox
     - coverage run -m pytest tests
