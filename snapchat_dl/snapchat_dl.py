@@ -21,17 +21,13 @@ class SnapchatDL:
         self.reaponse_ok = requests.codes.get("ok")
 
     def get_stories(self, username):
-        """Download user stories and check if `username`
+        """Download user stories and check if username
            has stories available for download.
 
         Args:
             username (str): Snapchat username
 
-        Returns:
-            [dict]: {
-                "stories_available": True,
-                "data": data,
-            }
+        Returns: [dict]: { "stories_available": True, "data": data, }
         """
         api_url = self.endpoint.format(username)
         response = requests.get(api_url)

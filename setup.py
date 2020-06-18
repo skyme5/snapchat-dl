@@ -19,11 +19,11 @@ requirements = list()
 with open("requirements.txt", "r") as file:
     requirements = [r for r in file.readlines() if len(r) > 0]
 
-test_requirements = ["pytest"]
+test_requirements = ["pytest"].extend(requirements)
 
 setup(
     name="snapchat-dl",
-    version="0.1.0",
+    version="version='0.1.1'",
     description="Snapchat Public Stories Downloader.",
     long_description=readme + "\n\n" + history,
     long_description_content_type="text/x-rst",
