@@ -1,0 +1,13 @@
+bandit==1.6.2
+black==19.10b0
+blacken-docs==1.7.0
+bump2version==0.5.11
+coverage==4.5.4
+pip==20.1.1
+pre-commit==2.5.1
+reorder_python_imports==2.3.0
+Sphinx==1.8.5
+tox==3.14.0
+twine==1.14.0
+watchdog==0.9.0
+wheel==0.33.6

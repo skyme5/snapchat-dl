@@ -1,0 +1,17 @@
+[report]
+exclude_lines =
+    pragma: no cover
+    def __repr__
+    if self.debug:
+    if settings.DEBUG
+    raise AssertionError
+    raise NotImplementedError
+    except requests.exceptions.RequestException as e
+    with concurrent.futures.ThreadPoolExecutor
+    for media in tqdm
+    if 0:
+    if __name__ == .__main__.:
+
+[run]
+omit =
+    snapchat_dl/cli.py
