@@ -30,7 +30,7 @@ Snapchat Public Stories Downloader.
 Usage
 -----
 
-..  code-block:: none
+..  code-block:: text
 
     usage: snapchat-dl [-h] [-c] [-i BATCH_FILENAME] [-P DIRECTORY_PREFIX]
                    [-l NUM_STORY] [-j MAX_WORKERS] [-s] [-u] [-t INTERVAL]
