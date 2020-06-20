@@ -78,6 +78,14 @@ def main():  # pragma: no cover
     )
 
     parser.add_argument(
+        "-np",
+        "--no-progress",
+        action="store_true",
+        help="Disable progressbar.",
+        dest="no_progress",
+    )
+
+    parser.add_argument(
         "-s",
         "--scan-from-prefix",
         action="store_true",
@@ -135,6 +143,7 @@ def main():  # pragma: no cover
         directory_prefix=args.save_prefix,
         max_workers=args.max_workers,
         limit_story=args.limit_story,
+        no_progress=args.no_progress,
     )
 
     history = list()
@@ -160,12 +169,10 @@ def main():  # pragma: no cover
 
         if args.scan_clipboard:
             while True:
-                for username in re.findall(
+                users = re.findall(
                     r"https://story.snapchat.com/s/([\w_\.]+)", pyperclip.paste()
-                ):
-                    if username not in history:
-                        executor.submit(downlaoder.download, username)
-                        history.append(username)
+                )
+                download_users(users, respect_history=True)
                 if int(time()) - seconds_tick_start >= args.interval:
                     seconds_tick_start = int(time())
                     print("Checking for new stories")

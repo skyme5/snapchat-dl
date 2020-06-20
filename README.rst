@@ -1,6 +1,6 @@
-===================
-Snapchat Downloader
-===================
+===================================
+Snapchat Public Stories Downloader.
+===================================
 
 
 .. image:: https://img.shields.io/pypi/v/snapchat-dl.svg
@@ -25,20 +25,6 @@ Snapchat Downloader
 .. image:: http://hits.dwyl.com/skyme5/snapchat-dl.svg
         :target: http://hits.dwyl.com/skyme5/snapchat-dl
         :alt: HitCount
-
-
-Snapchat Public Stories Downloader.
-
-
-* Free software: MIT license
-* Documentation: https://snapchat-dl.readthedocs.io.
-
-
-Features
---------
-
-* Download public stories from Snapchat.
-* Ability to scan clipboard for story urls.
 
 
 Usage
@@ -74,6 +60,13 @@ Usage
                             Set the update interval for new story in seconds.
                             (Default: 10m)
 
+
+Features
+--------
+
+* Download public stories from Snapchat.
+* Ability to scan clipboard for story urls.
+* Documentation: https://snapchat-dl.readthedocs.io.
 
 
 Credits

@@ -11,7 +11,7 @@
                 "id": "MCV4AYbWTXOeYnGpdbZddAAAgg59YVZJW-K_EAXLBuoUtAXLBuoCx_____w",
                 "media": {
                     "type": "IMAGE",
-                    "mediaUrl": "http://www.sample-videos.com/img/Sample-jpg-image-500kb.jpg"
+                    "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerJoyrides.jpg"
                 },
                 "captureTimeSecs": "1592388124"
             },
@@ -19,13 +19,13 @@
                 "id": "MCV4AYbWTXOeYnGpdbZddAAAgMh_o7Z5Xr974AXLBu8Z3AXLBu6oI_____w",
                 "media": {
                     "type": "VIDEO",
-                    "mediaUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
-                    "mediaStreamingUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
-                    "mediaPreviewUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4"
+                    "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+                    "mediaStreamingUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+                    "mediaPreviewUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
                 },
                 "overlayImage": {
-                    "mediaUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
-                    "mediaStreamingUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4"
+                    "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+                    "mediaStreamingUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
                 },
                 "captureTimeSecs": "1592388200"
             },
@@ -33,13 +33,13 @@
                 "id": "MCV4AYbWTXOeYnGpdbZddAAAgaFXgg8-u2ZPIAXLBu9HHAXLBu6oS_____w",
                 "media": {
                     "type": "VIDEO",
-                    "mediaUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
-                    "mediaStreamingUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
-                    "mediaPreviewUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4"
+                    "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+                    "mediaStreamingUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+                    "mediaPreviewUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
                 },
                 "overlayImage": {
-                    "mediaUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
-                    "mediaStreamingUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4"
+                    "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+                    "mediaStreamingUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
                 },
                 "captureTimeSecs": "1592388200"
             },
@@ -47,13 +47,13 @@
                 "id": "MCV4AYbWTXOeYnGpdbZddAAAg0jxXYqcByafdAXLBu9JDAXLBu6oc_____w",
                 "media": {
                     "type": "VIDEO",
-                    "mediaUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
-                    "mediaStreamingUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
-                    "mediaPreviewUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4"
+                    "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+                    "mediaStreamingUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+                    "mediaPreviewUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
                 },
                 "overlayImage": {
-                    "mediaUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
-                    "mediaStreamingUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4"
+                    "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+                    "mediaStreamingUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
                 },
                 "captureTimeSecs": "1592388200"
             },
@@ -61,13 +61,13 @@
                 "id": "MCV4AYbWTXOeYnGpdbZddAAAgILe9cwW9HZioAXLBu8yMAXLBu6om_____w",
                 "media": {
                     "type": "VIDEO",
-                    "mediaUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
-                    "mediaStreamingUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
-                    "mediaPreviewUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4"
+                    "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+                    "mediaStreamingUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+                    "mediaPreviewUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
                 },
                 "overlayImage": {
-                    "mediaUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
-                    "mediaStreamingUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4"
+                    "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+                    "mediaStreamingUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
                 },
                 "captureTimeSecs": "1592388200"
             },
@@ -75,9 +75,9 @@
                 "id": "MCV4AYbWTXOeYnGpdbZddAAAgSHCPcZjqPZcrAXLCAPeiAXLCANi6_____w",
                 "media": {
                     "type": "VIDEO",
-                    "mediaUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
-                    "mediaStreamingUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
-                    "mediaPreviewUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4"
+                    "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+                    "mediaStreamingUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+                    "mediaPreviewUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
                 },
                 "captureTimeSecs": "1592392734"
             },
@@ -85,9 +85,9 @@
                 "id": "MCV4AYbWTXOeYnGpdbZddAAAgCkdps0exX9MeAXLCAQb7AXLCANjE_____w",
                 "media": {
                     "type": "VIDEO",
-                    "mediaUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
-                    "mediaStreamingUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
-                    "mediaPreviewUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4"
+                    "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+                    "mediaStreamingUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+                    "mediaPreviewUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
                 },
                 "captureTimeSecs": "1592392734"
             },
@@ -95,9 +95,9 @@
                 "id": "MCV4AYbWTXOeYnGpdbZddAAAg-pIeprTKdfvPAXLCARQOAXLCANjO_____w",
                 "media": {
                     "type": "VIDEO",
-                    "mediaUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
-                    "mediaStreamingUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
-                    "mediaPreviewUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4"
+                    "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+                    "mediaStreamingUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+                    "mediaPreviewUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
                 },
                 "captureTimeSecs": "1592392734"
             },
@@ -105,9 +105,9 @@
                 "id": "MCV4AYbWTXOeYnGpdbZddAAAg3mi0ooa_vzFyAXLCARgIAXLCANjY_____w",
                 "media": {
                     "type": "VIDEO",
-                    "mediaUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
-                    "mediaStreamingUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
-                    "mediaPreviewUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4"
+                    "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+                    "mediaStreamingUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+                    "mediaPreviewUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
                 },
                 "captureTimeSecs": "1592392734"
             },
@@ -115,9 +115,9 @@
                 "id": "MCV4AYbWTXOeYnGpdbZddAAAgspVZbp5Dq_2CAXLCARieAXLCANji_____w",
                 "media": {
                     "type": "VIDEO",
-                    "mediaUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
-                    "mediaStreamingUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
-                    "mediaPreviewUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4"
+                    "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+                    "mediaStreamingUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+                    "mediaPreviewUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
                 },
                 "captureTimeSecs": "1592392734"
             },
@@ -125,9 +125,9 @@
                 "id": "MCV4AYbWTXOeYnGpdbZddAAAgmRqeqKZLvY3wAXLCARpSAXLCANjs_____w",
                 "media": {
                     "type": "VIDEO",
-                    "mediaUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
-                    "mediaStreamingUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
-                    "mediaPreviewUrl": "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4"
+                    "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+                    "mediaStreamingUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+                    "mediaPreviewUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
                 },
                 "captureTimeSecs": "1592392734"
             },
@@ -135,7 +135,7 @@
                 "id": "MCV4AYbWTXOeYnGpdbZddAAAgEeselKBHwGfMAXLGJA-ZAXLGI-_B_____w",
                 "media": {
                     "type": "IMAGE",
-                    "mediaUrl": "http://www.sample-videos.com/img/Sample-jpg-image-500kb.jpg"
+                    "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerJoyrides.jpg"
                 },
                 "captureTimeSecs": "1592462143"
             }

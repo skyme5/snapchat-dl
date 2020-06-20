@@ -15,3 +15,5 @@ exclude_lines =
 [run]
 omit =
     snapchat_dl/cli.py
+    .eggs/*
+    venv/*

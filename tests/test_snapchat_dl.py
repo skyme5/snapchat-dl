@@ -16,10 +16,8 @@ class TestSnapchat_dl(unittest.TestCase):
 
     def setUp(self):
         """Set up test fixtures."""
-        self.snapchat_dl = SnapchatDL(limit_story=10)
-        self.test_url = (
-            "http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_5mb.mp4"
-        )
+        self.snapchat_dl = SnapchatDL(limit_story=10, no_progress=True)
+        self.test_url = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
         self.test_url404 = "https://google.com/error.html"
         self.username = "invalidusername"
 
@@ -67,6 +65,11 @@ class TestSnapchat_dl(unittest.TestCase):
         open("23.mp4", "a").close()
         self.snapchat_dl.download_url(self.test_url, "./23.mp4")
 
+    def test_download_url_exists(self):
+        """Test snapchat_dl download_url with invalid url."""
+        with self.assertRaises(FileExistsError):
+            self.snapchat_dl.download_url(self.test_url, "./23.mp4")
+
     def test_download_url_raise(self):
         """Test snapchat_dl download_url with invalid url."""
         with self.assertRaises(HTTPError):
@@ -75,11 +78,7 @@ class TestSnapchat_dl(unittest.TestCase):
     def test_story_err_exist(self):
         """Test snapchat_dl Download."""
         data = self.snapchat_dl.get_stories(self.username)
-
-        if data["stories_available"]:
-            self.assertTrue(self.snapchat_dl.download(self.username))
-        else:
-            self.assertFalse(self.snapchat_dl.download(self.username))
+        self.assertFalse(self.snapchat_dl.download(self.username))
 
     @mock.patch("snapchat_dl.snapchat_dl.SnapchatDL.get_stories")
     def test_story_exist(self, fake_get):
