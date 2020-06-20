@@ -33,8 +33,8 @@ Usage
 ..  code-block:: none
 
     usage: snapchat-dl [-h] [-c] [-i BATCH_FILENAME] [-P DIRECTORY_PREFIX]
-                    [-l NUM_STORY] [-j MAX_WORKERS] [-s] [-u] [-t INTERVAL]
-                    [usernames [usernames ...]]
+                   [-l NUM_STORY] [-j MAX_WORKERS] [-s] [-u] [-t INTERVAL]
+                   [usernames [usernames ...]]
 
     positional arguments:
     usernames             Atleast one or more usernames to download stories for.
