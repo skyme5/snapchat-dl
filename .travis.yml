@@ -1,22 +1,22 @@
 language: python
 python:
-    - 3.8
+- 3.8
 install:
-    - pip install -U tox-travis
-    - pip install codecov
-    - pip install -r requirements.txt
+- pip install -U tox-travis
+- pip install codecov
+- pip install -r requirements.txt
 script:
-    - tox
-    - coverage run -m pytest tests
+- tox
+- coverage run -m pytest tests
 deploy:
-    provider: pypi
-    distributions: sdist bdist_wheel
-    user: __token__
-    on:
-        tags: true
-        repo: skyme5/snapchat-dl
-        python: 3.8
-    password:
-        secure: mrze+Olw83sf8KkGQUShN2XL9bObPvjKFWUY6agBCbnDp0/QQtKvgWxDKM/fdI6DEEprJ+dep3YN9YBazgwhK5KPs+gT4Up6bxTrD/6rRvvNdHDh8uDYw4DJqOjXlzxt+T8MuXBty183/NYfCmpvSQLsX2GTp0Al23qHdXRUXhbUWEw6pj1rSVNiojaWlCmGRR77VJUHESDIYcMqsxuLIgrBgB5d07PZw92Gdbh6yKDdveCzWQbs3RFATtvzMvrHKlA9rZ7jxrn+2oDKeCfLapjWMC6d5T9JBTVBE2nHK6PH9uyEECa16p2khDE6HbO/Sadyu5mi85KgRXIUEhFcAERmoZpjMvPPYpVw3HPecZtsffDCTsQ9EPkLnv4C7mtajNCLtsx5cGjhOKCYAfkKQnTSuxn90HzC98pcXGFzDE8vHc0itFs1m7GagjJcJOTlHpd0CnX9zu1HCJvaao1GHaoj/63Z0Ox49K/ybh06D8IrZUE5j3zRwu0WYRHeq8kjbKJQtn6R+7+qy1ELxiQ6saYo97n9+J1kDSTxQeF977rCVu9d9fYXRP+MP63VaRjXpn0gMitw1JvDj1nAKTuoNTBfb2Y9R0nFFmt3gMxQZvtYeMzcwNU+A7Li5Jsx4jntQ9OxLkc5uX4AoWQHMmv8/0ADBNqZ9XbrVTiCsAOAGaI=
+  provider: pypi
+  distributions: sdist bdist_wheel
+  user: __token__
+  on:
+    tags: true
+    repo: skyme5/snapchat-dl
+    python: 3.8
+  password:
+    secure: Y+XszJSHsQaTrUS78lxddqPzKhLrS5tOyjpYqMZC0JeI2roCjAa1r0+PHx4KevdxiWWUaGUTkb6t4uHqMVLUpUFL62QkEbictaRpiUagw9TJXtViiW/0mVkGzP+4uiaLpTYZTXIzYUmtdj5uAc5/GNz9XG9T7ZaHnM81Yu1ch3G8dS6zyCprPbTCoTTiVEYxFI6bYFw6UwgSFheukFSHCP0CZbV2YIxZCxzdEXvmK+QE1y5KCStwqEdOtta3fQYaK/bAkM7Hq3yyfTut910ouwrxNvUDl7v2paUTSsYkIPijUqnEesRN7CcZTjc+kBoxIFmq3SCAenxkgDduT0N4wbxIzKulh1x9tasm432M9B31RO6iY2AoUu2a4jXlM/U0FiqEDQXMazbjfmH04ExIyCtm/uoYdXGaAaunoBQ+a9o1N5b/4VQE/biw5bGd8kv1Vf/HzV2fXT/4UZfoehq3EMt8SyD65PtnD52sVEYKuWAPhxBa+Q4tg/KXlWN/BGI+alTjj3Qwtg/JyasVesRji+fboYP2TNUwwhSQtEZ7EOtFqKdJ/X68nOvwHFlw3ZlfGatbW6pRjCB+aWeEgz4/kZVg2XtW+PVObcLcStPOlL+8n/x/jxNmG5Mm9iRA1I4r7WTH5YkguBcm7Llzfr6ZAF6S+GjEAbHEyLZKgJP5WZY=
 after_success:
-    - codecov
+- codecov
