@@ -18,7 +18,7 @@ test_requirements = ["pytest"].extend(requirements)
 
 setup(
     name="snapchat-dl",
-    version="0.2.2",
+    version="0.2.3",
     description="Snapchat Public Stories Downloader.",
     long_description=readme + "\n\n" + history,
     long_description_content_type="text/x-rst",
