@@ -11,9 +11,8 @@ script:
 deploy:
   provider: pypi
   distributions: sdist bdist_wheel
-  username: __token__
+  username: "__token__"
   on:
-    tags: true
     repo: skyme5/snapchat-dl
     python: 3.8
   password:
