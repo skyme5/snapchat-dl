@@ -128,10 +128,6 @@ class SnapchatDL:
                 + info,
             )
 
-    def _progressbar_update(self):
-        if self.no_progress:
-            self.tdqm_progressbar.update()
-
     def download(self, username):
         """Download Snapchat Story for `username`.
 
@@ -164,6 +160,11 @@ class SnapchatDL:
         with concurrent.futures.ThreadPoolExecutor(
             max_workers=self.max_workers
         ) as executor:
+
+            def _progressbar_update(fut):
+                if self.no_progress:
+                    self.tdqm_progressbar.update()
+
             for media in stories:
                 media_url = media["media"]["mediaUrl"]
                 timestamp = int(media["captureTimeSecs"])
@@ -178,7 +179,7 @@ class SnapchatDL:
 
                 try:
                     future = executor.submit(self.download_url, media_url, output)
-                    future.add_done_callback(self._progressbar_update)
+                    future.add_done_callback(_progressbar_update)
                 except FileExistsError:
                     pass
 

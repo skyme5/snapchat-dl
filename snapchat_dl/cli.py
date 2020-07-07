@@ -156,9 +156,7 @@ def main():  # pragma: no cover
             for user in users:
                 if respect_history and username not in history:
                     history.append(username)
-                    executor.submit(downlaoder.download, user)
-                else:
-                    executor.submit(downlaoder.download, user)
+                executor.submit(downlaoder.download, user)
 
         download_users(args.usernames, respect_history=False)
 
