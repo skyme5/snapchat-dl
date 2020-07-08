@@ -7,7 +7,7 @@ Snapchat Public Stories Downloader.
         :target: https://pypi.python.org/pypi/snapchat-dl
         :alt: Python Package
 
-.. image:: https://github.com/skyme5/snapchat-dl/workflows/CI/badge.svg
+.. image:: https://github.com/skyme5/snapchat-dl/workflows/CI-pip/badge.svg
         :alt: CI
 
 .. image:: https://codecov.io/gh/skyme5/snapchat-dl/branch/master/graph/badge.svg
