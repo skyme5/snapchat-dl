@@ -162,7 +162,7 @@ class SnapchatDL:
         ) as executor:
 
             def _progressbar_update(fut):
-                if self.no_progress:
+                if self.no_progress is False:
                     self.tdqm_progressbar.update()
 
             for media in stories:
