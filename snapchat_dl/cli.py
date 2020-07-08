@@ -149,6 +149,7 @@ def main():  # pragma: no cover
         max_workers=args.max_workers,
         limit_story=args.limit_story,
         no_progress=args.no_progress,
+        quiet=args.quiet,
     )
 
     history = list()
