@@ -10,7 +10,7 @@
     </a>
     <a href="https://pypi.python.org/pypi/snapchat-dl">
       <img
-        src="https://github.com/skyme5/snapchat-dl/workflows/CI/badge.svg"
+        src="https://github.com/skyme5/snapchat-dl/workflows/build/badge.svg"
         alt="CI"
       />
     </a>
