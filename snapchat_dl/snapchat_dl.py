@@ -5,24 +5,30 @@ import re
 from datetime import datetime
 
 import requests
-from colorama import Fore
-from colorama import init
-from tqdm import tqdm
 
 
 class SnapchatDL:
     def __init__(
-        self, directory_prefix=".", max_workers=2, limit_story=-1, no_progress=False
+        self,
+        directory_prefix=".",
+        max_workers=2,
+        limit_story=-1,
+        no_progress=False,
+        quiet=False,
     ):
-        init(autoreset=True)
         self.directory_prefix = directory_prefix
         self.max_workers = max_workers
         self.limit_story = limit_story
         self.no_progress = no_progress
+        self.quiet = quiet
         self.tdqm_position = 0
         self.endpoint = "https://storysharing.snapchat.com/v1/fetch/{}"
         "?request_origin=ORIGIN_WEB_PLAYER"
         self.reaponse_ok = requests.codes.get("ok")
+
+    def log(self, string):
+        if self.quiet is False:
+            print(string)
 
     def get_stories(self, username):
         """Download user stories.
@@ -116,20 +122,6 @@ class SnapchatDL:
                 print(Fore.RED + str(e))
                 os.remove(dest)
 
-    def _progressbar(self, total, desc, info, position):
-        if self.no_progress is False:
-            self.tdqm_progressbar = tqdm(
-                total=total,
-                desc=desc,
-                bar_format="{desc} |"
-                + Fore.YELLOW
-                + "{bar}"
-                + Fore.RESET
-                + "| {n_fmt}/{total_fmt}"
-                + info,
-                position=position,
-            )
-
     def download(self, username, tqdm_position=0):
         """Download Snapchat Story for `username`.
 
@@ -145,7 +137,7 @@ class SnapchatDL:
         response = self.get_stories(username)
 
         if response["stories_available"] is False:
-            print("\033[91m[-] {} has no stories\033[0m".format(username))
+            self.log("\033[91m[-] {} has no stories\033[0m".format(username))
             return False
 
         data = response["data"]
@@ -153,25 +145,10 @@ class SnapchatDL:
 
         if self.limit_story > -1:
             stories = stories[0 : self.limit_story]
-            limited_info = " of " + str(len(stories))
-        else:
-            limited_info = str()
-
-        self._progressbar(
-            total=len(stories),
-            desc=username,
-            info=limited_info,
-            position=self.tdqm_position,
-        )
-        self.tdqm_position += 1
 
         with concurrent.futures.ThreadPoolExecutor(
             max_workers=self.max_workers
         ) as executor:
-
-            def _progressbar_update(fut):
-                if self.no_progress is False:
-                    self.tdqm_progressbar.update()
 
             for media in stories:
                 media_url = media["media"]["mediaUrl"]
@@ -186,9 +163,9 @@ class SnapchatDL:
                 output = os.path.join(dir_name, filename)
 
                 try:
-                    future = executor.submit(self.download_url, media_url, output)
-                    future.add_done_callback(_progressbar_update)
+                    executor.submit(self.download_url, media_url, output)
                 except FileExistsError:
                     pass
 
+        self.log("[+] {} has {} stories".format(username, len(stories)))
         return True

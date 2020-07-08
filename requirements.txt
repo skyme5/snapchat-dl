@@ -1,5 +1,2 @@
-colorama
 pyperclip
 requests
-termcolor
-tqdm

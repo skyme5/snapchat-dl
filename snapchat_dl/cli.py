@@ -8,15 +8,12 @@ from time import sleep
 from time import time
 
 import pyperclip
-from colorama import init
-from termcolor import colored
 
 from snapchat_dl import SnapchatDL
 
 
 def main():  # pragma: no cover
     """Console script for snapchat_dl."""
-    init(autoreset=True)
     parser = argparse.ArgumentParser(prog="snapchat-dl")
 
     parser.add_argument(
@@ -112,6 +109,13 @@ def main():  # pragma: no cover
         type=int,
     )
 
+    parser.add_argument(
+        "-q",
+        "--quiet",
+        action="store_true",
+        help="Do not print anything to the console.",
+    )
+
     args = parser.parse_args()
 
     """Append usernames from BATCH_FILE to args.usernames list"""
@@ -137,7 +141,8 @@ def main():  # pragma: no cover
             if username not in args.usernames:
                 args.usernames.append(username)
                 count += 1
-        print("Added {} usernames from {}".format(count, args.save_prefix))
+        if args.quiet is False:
+            print("Added {} usernames from {}".format(count, args.save_prefix))
 
     downlaoder = SnapchatDL(
         directory_prefix=args.save_prefix,
@@ -173,7 +178,8 @@ def main():  # pragma: no cover
                 download_users(users, respect_history=True)
                 if int(time()) - seconds_tick_start >= args.interval:
                     seconds_tick_start = int(time())
-                    print("Checking for new stories")
+                    if args.quiet is False:
+                        print("Checking for new stories")
                     download_users(history, respect_history=True)
                 sleep(1)
 
