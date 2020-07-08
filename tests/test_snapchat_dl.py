@@ -8,6 +8,7 @@ from unittest import mock
 
 from requests.exceptions import HTTPError
 
+from snapchat_dl.snapchat_dl import NoStoriesAvailable
 from snapchat_dl.snapchat_dl import SnapchatDL
 
 
@@ -37,12 +38,7 @@ class TestSnapchat_dl(unittest.TestCase):
         """Test snapchat_dl init."""
         self.assertTrue(self.snapchat_dl)
 
-    def test_download_wargs(self):
-        """Test snapchat_dl Download without args."""
-        with self.assertRaises(Exception):
-            self.snapchat_dl.download()
-
-    def test_invalid_username(self):
+    def test_valid_username(self):
         """Test snapchat_dl Download with invalid username."""
         with self.assertRaises(Exception):
             self.snapchat_dl.download("2323 2323")
@@ -60,33 +56,42 @@ class TestSnapchat_dl(unittest.TestCase):
             "2001-01-01T00-00-00",
         )
 
+    def test_download_without_args(self):
+        """Test snapchat_dl Download without args."""
+        with self.assertRaises(Exception):
+            self.snapchat_dl.download()
+
     def test_download_url(self):
         """Test snapchat_dl download_url."""
         open("23.mp4", "a").close()
-        self.snapchat_dl.download_url(self.test_url, "./23.mp4")
+        self.snapchat_dl.download_url(self.test_url, "23.mp4")
 
     def test_download_url_exists(self):
         """Test snapchat_dl download_url with invalid url."""
         with self.assertRaises(FileExistsError):
-            self.snapchat_dl.download_url(self.test_url, "./23.mp4")
+            self.snapchat_dl.download_url(self.test_url, "23.mp4")
 
     def test_download_url_raise(self):
         """Test snapchat_dl download_url with invalid url."""
         with self.assertRaises(HTTPError):
-            self.snapchat_dl.download_url(self.test_url404, "./23.txt")
+            self.snapchat_dl.download_url(self.test_url404, "23.txt")
 
-    def test_story_err_exist(self):
+    def test_get_stories_err(self):
         """Test snapchat_dl Download."""
-        data = self.snapchat_dl.get_stories(self.username)
-        self.assertFalse(self.snapchat_dl.download(self.username))
+        with self.assertRaises(NoStoriesAvailable):
+            self.snapchat_dl.get_stories(self.username)
+
+    def test_get_stories_no_stories(self):
+        """Test snapchat_dl Stories are not available."""
+        self.assertFalse(self.snapchat_dl.download("username"))
 
     @mock.patch("snapchat_dl.snapchat_dl.SnapchatDL.get_stories")
-    def test_story_exist(self, fake_get):
+    def test_get_stories_ok(self, fake_get):
         """Test snapchat_dl Download."""
         with open("tests/mock_data/invalidusername.json", "r", encoding="utf8") as f:
             data = json.load(f)
 
-        fake_get.return_value = {"stories_available": True, "data": data}
+        fake_get.return_value = data
         self.snapchat_dl.download(self.username)
 
 

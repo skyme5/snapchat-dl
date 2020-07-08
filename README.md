@@ -1,4 +1,5 @@
 <p>
+  <div align="center">
   <h1>
     Snapchat Public Stories Downloader.<br />
     <a href="https://pypi.python.org/pypi/snapchat-dl">
@@ -19,6 +20,12 @@
         alt="Code Coverage"
       />
     </a>
+    <a href="https://github.com/psf/black">
+      <img
+        src="https://img.shields.io/badge/code%20style-black-000000.svg"
+        alt="The Uncompromising Code Formatter"
+      />
+    </a>
     <a href="https://opensource.org/licenses/MIT">
       <img
         src="https://img.shields.io/badge/License-MIT-blue.svg"
@@ -29,8 +36,26 @@
       <img src="http://hits.dwyl.com/skyme5/snapchat-dl.svg" alt="HitCount" />
     </a>
   </h1>
+  </div>
 </p>
 
+
+### Installation
+
+Install using pip,
+
+```bash
+pip install black
+```
+
+Install from GitHub
+If you can't wait for the latest hotness and want to install from GitHub, use:
+
+```bash
+pip install git+git://github.com/psf/black
+```
+
+### Usage
 
 ```text
 

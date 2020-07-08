@@ -11,6 +11,8 @@ exclude_lines =
     for media in tqdm
     if 0:
     if __name__ == .__main__.:
+    return response.json()
+    raise FileExistsError
 
 [run]
 omit =

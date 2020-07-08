@@ -47,7 +47,7 @@ def main():  # pragma: no cover
         "-P",
         "--directory-prefix",
         action="store",
-        default=os.getcwd(),
+        default=os.path.abspath(os.getcwd()),
         help="Directory Prefix for downloading stories",
         metavar="DIRECTORY_PREFIX",
         dest="save_prefix",

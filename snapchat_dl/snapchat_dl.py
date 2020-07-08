@@ -8,6 +8,10 @@ import requests
 from loguru import logger
 
 
+class NoStoriesAvailable(Exception):
+    pass
+
+
 class SnapchatDL:
     def __init__(
         self,
@@ -17,7 +21,7 @@ class SnapchatDL:
         no_progress=False,
         quiet=False,
     ):
-        self.directory_prefix = directory_prefix
+        self.directory_prefix = os.path.abspath(directory_prefix)
         self.max_workers = max_workers
         self.limit_story = limit_story
         self.no_progress = no_progress
@@ -27,15 +31,6 @@ class SnapchatDL:
         "?request_origin=ORIGIN_WEB_PLAYER"
         self.reaponse_ok = requests.codes.get("ok")
 
-    def log(self, msg: str):
-        """Log message to console.
-
-        Args:
-            msg (str): message to log
-        """
-        if self.quiet is False:
-            logger.info(msg)
-
     def get_stories(self, username):
         """Download user stories.
 
@@ -44,15 +39,15 @@ class SnapchatDL:
         Args:
             username (str): Snapchat username
 
-        Returns: [dict]: { "stories_available": True, "data": data, }
+        Returns: (dict): data
         """
         api_url = self.endpoint.format(username)
         response = requests.get(api_url)
 
         if response.status_code != 200:
-            return {"stories_available": False}
+            raise NoStoriesAvailable
 
-        return {"stories_available": True, "data": response.json()}
+        return response.json()
 
     def valid_username(self, username):
         """Validate Username.
@@ -107,25 +102,30 @@ class SnapchatDL:
             response.raise_for_status: if response is 4** or 50*
             FileExistsError: if file is already downloaded
         """
-        os.makedirs(os.path.dirname(dest), exist_ok=True)
+        if len(os.path.dirname(dest)) > 0:
+            os.makedirs(os.path.dirname(dest), exist_ok=True)
 
         if os.path.isfile(dest) and os.path.getsize(dest) == 0:
             os.remove(dest)
 
+        response = requests.get(url, stream=True, timeout=10)
+        if response.status_code != self.reaponse_ok:
+            raise response.raise_for_status()
+
+        if (
+            os.path.isfile(dest)
+            and os.path.getsize(dest) == response.headers["Content-length"]
+        ):
+            raise FileExistsError
+
         with open(dest, "xb") as handle:
-            response = requests.get(url, stream=True, timeout=10)
-            if response.status_code != self.reaponse_ok:
-                raise response.raise_for_status()
-
-            if os.path.getsize(dest) == response.headers["Content-length"]:
-                raise FileExistsError
-
             try:
                 for data in response.iter_content(chunk_size=4194304):
                     handle.write(data)
                 handle.close()
             except requests.exceptions.RequestException as e:
                 logger.error(e)
+                handle.close()
                 os.remove(dest)
 
     def download(self, username, tqdm_position=0):
@@ -140,14 +140,13 @@ class SnapchatDL:
         if self.valid_username(username) is False:
             raise Exception("invalid username")
 
-        response = self.get_stories(username)
-
-        if response["stories_available"] is False:
-            self.log("\033[91m[-] {} has no stories\033[0m".format(username))
+        try:
+            response = self.get_stories(username)
+        except NoStoriesAvailable:
+            logger.info("\033[91m[-] {} has no stories\033[0m".format(username))
             return False
 
-        data = response["data"]
-        stories = data.get("story").get("snaps")
+        stories = response.get("story").get("snaps")
 
         if self.limit_story > -1:
             stories = stories[0 : self.limit_story]
@@ -168,10 +167,7 @@ class SnapchatDL:
                 ).format(media.get("id"), username, file_ext)
                 output = os.path.join(dir_name, filename)
 
-                try:
-                    executor.submit(self.download_url, media_url, output)
-                except FileExistsError:
-                    pass
+                executor.submit(self.download_url, media_url, output)
 
-        self.log("[+] {} has {} stories".format(username, len(stories)))
+        logger.info("[+] {} has {} stories".format(username, len(stories)))
         return True
