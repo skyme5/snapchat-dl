@@ -2,7 +2,7 @@
 
 __author__ = """Aakash Gajjar"""
 __email__ = "skyqutip@gmail.com"
-__version__ = "0.2.4"
+__version__ = "0.2.5"
 
 from snapchat_dl.snapchat_dl import SnapchatDL
 
