@@ -3,6 +3,9 @@
 from setuptools import find_packages
 from setuptools import setup
 
+from snapchat_dl import __version__
+
+
 with open("README.rst") as readme_file:
     readme = readme_file.read()
 
@@ -18,7 +21,7 @@ test_requirements = ["pytest"].extend(requirements)
 
 setup(
     name="snapchat-dl",
-    version="0.2.3",
+    version=__version__,
     description="Snapchat Public Stories Downloader.",
     long_description=readme + "\n\n" + history,
     long_description_content_type="text/x-rst",
