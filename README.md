@@ -1,4 +1,4 @@
-<center>
+<p>
   <h1>
     Snapchat Public Stories Downloader.<br />
     <a href="https://pypi.python.org/pypi/snapchat-dl">
@@ -29,7 +29,7 @@
       <img src="http://hits.dwyl.com/skyme5/snapchat-dl.svg" alt="HitCount" />
     </a>
   </h1>
-</center>
+</p>
 
 
 ```text
