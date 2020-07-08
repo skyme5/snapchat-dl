@@ -116,7 +116,7 @@ class SnapchatDL:
                 os.remove(dest)
 
     def _progressbar(self, total, desc, info):
-        if self.no_progress:
+        if self.no_progress is False:
             self.tdqm_progressbar = tqdm(
                 total=total,
                 desc=desc,
