@@ -19,6 +19,7 @@ class SnapchatDL:
         self.max_workers = max_workers
         self.limit_story = limit_story
         self.no_progress = no_progress
+        self.tdqm_position = 0
         self.endpoint = "https://storysharing.snapchat.com/v1/fetch/{}"
         "?request_origin=ORIGIN_WEB_PLAYER"
         self.reaponse_ok = requests.codes.get("ok")
@@ -134,7 +135,6 @@ class SnapchatDL:
 
         Args:
             username (str): Snapchat username
-            tdqm_position (int): Position of TQDM Progressbar
 
         Returns:
             [bool]: story downloader
@@ -158,8 +158,12 @@ class SnapchatDL:
             limited_info = str()
 
         self._progressbar(
-            total=len(stories), desc=username, info=limited_info, position=tqdm_position
+            total=len(stories),
+            desc=username,
+            info=limited_info,
+            position=self.tdqm_position,
         )
+        self.tdqm_position += 1
 
         with concurrent.futures.ThreadPoolExecutor(
             max_workers=self.max_workers
