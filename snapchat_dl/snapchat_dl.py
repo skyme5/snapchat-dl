@@ -5,6 +5,7 @@ import re
 from datetime import datetime
 
 import requests
+from loguru import logger
 
 
 class SnapchatDL:
@@ -26,9 +27,14 @@ class SnapchatDL:
         "?request_origin=ORIGIN_WEB_PLAYER"
         self.reaponse_ok = requests.codes.get("ok")
 
-    def log(self, string):
+    def log(self, msg: str):
+        """Log message to console.
+
+        Args:
+            msg (str): message to log
+        """
         if self.quiet is False:
-            print(string)
+            logger.info(msg)
 
     def get_stories(self, username):
         """Download user stories.
@@ -119,7 +125,7 @@ class SnapchatDL:
                     handle.write(data)
                 handle.close()
             except requests.exceptions.RequestException as e:
-                print(Fore.RED + str(e))
+                logger.error(e)
                 os.remove(dest)
 
     def download(self, username, tqdm_position=0):

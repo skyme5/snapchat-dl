@@ -8,6 +8,7 @@ from time import sleep
 from time import time
 
 import pyperclip
+from loguru import logger
 
 from snapchat_dl import SnapchatDL
 
@@ -113,7 +114,7 @@ def main():  # pragma: no cover
         "-q",
         "--quiet",
         action="store_true",
-        help="Do not print anything to the console.",
+        help="Do not print anything to the console. (errors are still logged)",
     )
 
     args = parser.parse_args()
@@ -122,7 +123,7 @@ def main():  # pragma: no cover
     if args.scan_prefix is False and args.batch_file is not None:
         if os.path.isfile(args.batch_file) is False:
             raise os.error(
-                colored("Invalid Batch File at {}".format(args.batch_file), "red")
+                logger.error("Invalid Batch File at {}".format(args.batch_file), "red")
             )
         with open(args.batch_file, "r") as f:
             for username in f.read().split("\n"):
@@ -142,7 +143,7 @@ def main():  # pragma: no cover
                 args.usernames.append(username)
                 count += 1
         if args.quiet is False:
-            print("Added {} usernames from {}".format(count, args.save_prefix))
+            logger.info("Added {} usernames from {}".format(count, args.save_prefix))
 
     downlaoder = SnapchatDL(
         directory_prefix=args.save_prefix,
@@ -180,7 +181,7 @@ def main():  # pragma: no cover
                 if int(time()) - seconds_tick_start >= args.interval:
                     seconds_tick_start = int(time())
                     if args.quiet is False:
-                        print("Checking for new stories")
+                        logger.info("Checking for new stories")
                     download_users(history, respect_history=True)
                 sleep(1)
 
