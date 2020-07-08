@@ -54,7 +54,7 @@ test: ## run tests quickly with the default Python
 	pytest tests
 
 test-all: ## run tests on every Python version with tox
-	tox
+	pytest tests
 
 coverage: ## check code coverage quickly with the default Python
 	coverage run -m pytest tests
