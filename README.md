@@ -52,7 +52,7 @@ Install from GitHub
 If you can't wait for the latest hotness and want to install from GitHub, use:
 
 ```bash
-pip install git+git://github.com/psf/black
+pip install git+git://github.com/skyme5/snapchat-dl
 ```
 
 ### Usage
