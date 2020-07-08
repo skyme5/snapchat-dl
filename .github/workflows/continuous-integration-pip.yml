@@ -1,4 +1,4 @@
-name: CI-pip
+name: CI
 
 on: [push]
 

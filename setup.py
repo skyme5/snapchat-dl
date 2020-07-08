@@ -6,11 +6,8 @@ from setuptools import setup
 from snapchat_dl import __version__
 
 
-with open("README.rst") as readme_file:
+with open("README.md") as readme_file:
     readme = readme_file.read()
-
-with open("HISTORY.rst") as history_file:
-    history = history_file.read()
 
 requirements = list()
 
@@ -23,8 +20,8 @@ setup(
     name="snapchat-dl",
     version=__version__,
     description="Snapchat Public Stories Downloader.",
-    long_description=readme + "\n\n" + history,
-    long_description_content_type="text/x-rst",
+    long_description=readme,
+    long_description_content_type="text/markdown",
     url="https://github.com/skyme5/snapchat-dl",
     author="Aakash Gajjar",
     author_email="skyqutip@gmail.com",
