@@ -115,7 +115,7 @@ class SnapchatDL:
                 print(Fore.RED + str(e))
                 os.remove(dest)
 
-    def _progressbar(self, total, desc, info):
+    def _progressbar(self, total, desc, info, position):
         if self.no_progress is False:
             self.tdqm_progressbar = tqdm(
                 total=total,
@@ -126,13 +126,15 @@ class SnapchatDL:
                 + Fore.RESET
                 + "| {n_fmt}/{total_fmt}"
                 + info,
+                position=position,
             )
 
-    def download(self, username):
+    def download(self, username, tqdm_position=0):
         """Download Snapchat Story for `username`.
 
         Args:
             username (str): Snapchat username
+            tdqm_position (int): Position of TQDM Progressbar
 
         Returns:
             [bool]: story downloader
@@ -155,7 +157,9 @@ class SnapchatDL:
         else:
             limited_info = str()
 
-        self._progressbar(total=len(stories), desc=username, info=limited_info)
+        self._progressbar(
+            total=len(stories), desc=username, info=limited_info, position=tqdm_position
+        )
 
         with concurrent.futures.ThreadPoolExecutor(
             max_workers=self.max_workers

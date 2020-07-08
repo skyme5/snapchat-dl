@@ -151,12 +151,14 @@ def main():  # pragma: no cover
     with concurrent.futures.ThreadPoolExecutor(
         max_workers=args.max_workers
     ) as executor:
+        tqdm_position = 0
 
         def download_users(users, respect_history=False):
             for user in users:
                 if respect_history and username not in history:
                     history.append(username)
-                executor.submit(downlaoder.download, user)
+                executor.submit(downlaoder.download, user, tqdm_position)
+                tqdm_position += 1
 
         download_users(args.usernames, respect_history=False)
 
