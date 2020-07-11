@@ -109,6 +109,10 @@ def main():  # pragma: no cover
         help="Do not print anything to the console. (errors are still logged)",
     )
 
+    if len(sys.argv) == 1:
+        parser.print_help()
+        sys.exit(1)
+
     args = parser.parse_args()
 
     """Append usernames from BATCH_FILE to args.usernames list"""
