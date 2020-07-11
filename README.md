@@ -32,16 +32,16 @@
         alt="The Uncompromising Code Formatter"
       />
     </a>
-    <a href="https://opensource.org/licenses/MIT">
-      <img
-        src="https://img.shields.io/badge/License-MIT-blue.svg"
-        alt="License: MIT"
-      />
-    </a>
     <a href="https://github.com/skyme5/snapchat-dl">
       <img
         src="https://img.shields.io/pypi/dm/snapchat-dl"
         alt="Monthly Downloads"
+      />
+    </a>
+    <a href="https://opensource.org/licenses/MIT">
+      <img
+        src="https://img.shields.io/badge/License-MIT-blue.svg"
+        alt="License: MIT"
       />
     </a>
   </h1>
@@ -57,7 +57,7 @@ Install using pip,
 pip install black
 ```
 
-Install from GitHub
+Install from GitHub,
 
 ```bash
 pip install git+git://github.com/skyme5/snapchat-dl
