@@ -1,7 +1,7 @@
 <p>
   <div align="center">
   <h1>
-    Snapchat Public Stories Downloader.<br />
+    Snapchat Public Stories Downloader.<br /> <br />
     <a href="https://pypi.python.org/pypi/snapchat-dl">
       <img
         src="https://img.shields.io/pypi/v/snapchat-dl.svg"
@@ -10,14 +10,20 @@
     </a>
     <a href="https://pypi.python.org/pypi/snapchat-dl">
       <img
-        src="https://github.com/skyme5/snapchat-dl/workflows/build/badge.svg"
+        src="https://img.shields.io/github/workflow/status/skyme5/snapchat-dl/build"
         alt="CI"
       />
     </a>
     <a href="https://codecov.io/gh/skyme5/snapchat-dl">
       <img
-        src="https://codecov.io/gh/skyme5/snapchat-dl/branch/master/graph/badge.svg"
+        src="https://img.shields.io/codecov/c/github/skyme5/snapchat-dl"
         alt="Code Coverage"
+      />
+    </a>
+    <a href="https://codecov.io/gh/skyme5/snapchat-dl">
+      <img
+        src="https://img.shields.io/pypi/pyversions/snapchat-dl"
+        alt="Python Versions"
       />
     </a>
     <a href="https://github.com/psf/black">
@@ -32,8 +38,11 @@
         alt="License: MIT"
       />
     </a>
-    <a href="http://hits.dwyl.com/skyme5/snapchat-dl">
-      <img src="http://hits.dwyl.com/skyme5/snapchat-dl.svg" alt="HitCount" />
+    <a href="https://github.com/skyme5/snapchat-dl">
+      <img
+        src="https://img.shields.io/pypi/dm/snapchat-dl"
+        alt="Monthly Downloads"
+      />
     </a>
   </h1>
   </div>
@@ -49,7 +58,6 @@ pip install black
 ```
 
 Install from GitHub
-If you can't wait for the latest hotness and want to install from GitHub, use:
 
 ```bash
 pip install git+git://github.com/skyme5/snapchat-dl
