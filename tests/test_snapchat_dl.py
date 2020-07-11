@@ -17,7 +17,7 @@ class TestSnapchat_dl(unittest.TestCase):
 
     def setUp(self):
         """Set up test fixtures."""
-        self.snapchat_dl = SnapchatDL(limit_story=10, no_progress=True)
+        self.snapchat_dl = SnapchatDL(limit_story=10)
         self.test_url = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
         self.test_url404 = "https://google.com/error.html"
         self.username = "invalidusername"

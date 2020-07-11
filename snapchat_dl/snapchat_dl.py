@@ -19,9 +19,7 @@ class SnapchatDL:
         self.directory_prefix = os.path.abspath(directory_prefix)
         self.max_workers = max_workers
         self.limit_story = limit_story
-        self.no_progress = no_progress
         self.quiet = quiet
-        self.tdqm_position = 0
         self.endpoint = "https://storysharing.snapchat.com/v1/fetch/{}"
         "?request_origin=ORIGIN_WEB_PLAYER"
         self.reaponse_ok = requests.codes.get("ok")
