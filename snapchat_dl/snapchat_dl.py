@@ -14,12 +14,7 @@ class NoStoriesAvailable(Exception):
 
 class SnapchatDL:
     def __init__(
-        self,
-        directory_prefix=".",
-        max_workers=2,
-        limit_story=-1,
-        no_progress=False,
-        quiet=False,
+        self, directory_prefix=".", max_workers=2, limit_story=-1, quiet=False,
     ):
         self.directory_prefix = os.path.abspath(directory_prefix)
         self.max_workers = max_workers

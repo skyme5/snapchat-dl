@@ -18,7 +18,7 @@ def main():  # pragma: no cover
     parser = argparse.ArgumentParser(prog="snapchat-dl")
 
     parser.add_argument(
-        "usernames",
+        "username",
         action="store",
         nargs="*",
         help="Atleast one or more usernames to download stories for.",
@@ -73,14 +73,6 @@ def main():  # pragma: no cover
         metavar="MAX_WORKERS",
         dest="max_workers",
         type=int,
-    )
-
-    parser.add_argument(
-        "-np",
-        "--no-progress",
-        action="store_true",
-        help="Disable progressbar.",
-        dest="no_progress",
     )
 
     parser.add_argument(
@@ -149,7 +141,6 @@ def main():  # pragma: no cover
         directory_prefix=args.save_prefix,
         max_workers=args.max_workers,
         limit_story=args.limit_story,
-        no_progress=args.no_progress,
         quiet=args.quiet,
     )
 
