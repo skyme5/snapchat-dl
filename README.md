@@ -54,7 +54,7 @@
 Install using pip,
 
 ```bash
-pip install black
+pip install snapchat-dl
 ```
 
 Install from GitHub,
