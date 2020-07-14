@@ -27,7 +27,7 @@ setup(
     url="https://github.com/skyme5/snapchat-dl",
     author="Aakash Gajjar",
     author_email="skyqutip@gmail.com",
-    entry_points={"console_scripts": ["snapchat-dl=snapchat_dl.cli:main",],},
+    entry_points={"console_scripts": ["snapchat-dl=snapchat_dl.app:main",],},
     include_package_data=True,
     install_requires=requirements,
     test_suite="tests",

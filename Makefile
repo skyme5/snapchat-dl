@@ -46,6 +46,7 @@ clean-test: ## remove test and coverage artifacts
 	rm -f .coverage
 	rm -fr htmlcov/
 	rm -fr .pytest_cache
+	rm -fr .test-data
 
 lint: ## check style with flake8
 	black snapchat_dl tests
@@ -57,7 +58,7 @@ test-all: ## run tests on every Python version with tox
 	pytest tests
 
 coverage: ## check code coverage quickly with the default Python
-	coverage run -m pytest tests
+	coverage run -m pytest -v tests
 	coverage report -m --skip-covered
 	coverage html
 	$(BROWSER) htmlcov/index.html
