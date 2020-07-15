@@ -26,14 +26,14 @@ class Test_downloader(unittest.TestCase):
     def test_download_url(self):
         """Test snapchat_dl download_url."""
         open("test_dl_23.mp4", "a").close
-        download_url(self.test_url, "test_dl_23.mp4")
+        download_url(self.test_url, "test_dl_23.mp4", sleep_interval=0)
 
     def test_download_url_file_exists(self):
         """Test snapchat_dl download_url with file downloaded."""
         with self.assertRaises(FileExistsError):
-            download_url(self.test_url, "test_dl_23.mp4")
+            download_url(self.test_url, "test_dl_23.mp4", sleep_interval=0)
 
     def test_download_url_raise(self):
         """Test snapchat_dl download_url with invalid url."""
         with self.assertRaises(HTTPError):
-            download_url(self.test_url404, "test_dl_23.txt")
+            download_url(self.test_url404, "test_dl_23.txt", sleep_interval=0)

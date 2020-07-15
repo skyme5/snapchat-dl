@@ -1,11 +1,12 @@
 """File Downlaoder for snapchat_dl."""
 import os
+import time
 
 import requests
 from loguru import logger
 
 
-def download_url(url: str, dest: str):
+def download_url(url: str, dest: str, sleep_interval: int):
     """Download URL to destionation path.
 
     Args:
@@ -21,6 +22,9 @@ def download_url(url: str, dest: str):
 
     if os.path.isfile(dest) and os.path.getsize(dest) == 0:
         os.remove(dest)
+
+    """Rate limiting."""
+    time.sleep(sleep_interval)
 
     response = requests.get(url, stream=True, timeout=10)
     if response.status_code != requests.codes.get("ok"):

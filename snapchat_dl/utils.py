@@ -8,6 +8,8 @@ from loguru import logger
 
 
 class NoStoriesAvailable(Exception):
+    """Exception when there are no stories."""
+
     pass
 
 

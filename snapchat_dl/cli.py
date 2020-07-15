@@ -76,7 +76,7 @@ def parse_arguments():
         "-j",
         "--max-concurrent-downloads",
         action="store",
-        default=3,
+        default=2,
         help="Set maximum number of parallel downloads.",
         metavar="MAX_WORKERS",
         dest="max_workers",
@@ -91,6 +91,16 @@ def parse_arguments():
         help="Set the update interval for new story in seconds. (Default: 10m)",
         metavar="INTERVAL",
         dest="interval",
+        type=int,
+    )
+
+    parser.add_argument(
+        "--sleep-interval",
+        action="store",
+        default=1,
+        help="Sleep between downloads in seconds. (Default: 1s)",
+        metavar="INTERVAL",
+        dest="sleep_interval",
         type=int,
     )
 

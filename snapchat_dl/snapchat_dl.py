@@ -11,12 +11,20 @@ from snapchat_dl.utils import strf_time
 
 
 class SnapchatDL:
+    """Interact with Snapchat API to download story."""
+
     def __init__(
-        self, directory_prefix=".", max_workers=2, limit_story=-1, quiet=False,
+        self,
+        directory_prefix=".",
+        max_workers=2,
+        limit_story=-1,
+        sleep_interval=1,
+        quiet=False,
     ):
         self.directory_prefix = os.path.abspath(os.path.normpath(directory_prefix))
         self.max_workers = max_workers
         self.limit_story = limit_story
+        self.sleep_interval = sleep_interval
         self.quiet = quiet
         self.endpoint = "https://storysharing.snapchat.com/v1/fetch/{}"
         "?request_origin=ORIGIN_WEB_PLAYER"
@@ -62,13 +70,15 @@ class SnapchatDL:
             [bool]: story downloader
         """
         response = self.stories_response(username)
-        if response.status_code != 200:
+        if (
+            response.status_code != 200
+            or response.json().get("story").get("snaps") is None
+        ):
             if self.quiet is False:
                 logger.info("\033[91m{} has no stories\033[0m".format(username))
             raise NoStoriesAvailable
 
         stories = response.json().get("story").get("snaps")
-
         if self.limit_story > -1:
             stories = stories[0 : self.limit_story]
 
@@ -85,7 +95,7 @@ class SnapchatDL:
                     media.get("id"), username, file_ext
                 )
                 output = os.path.join(dir_name, filename)
-                executor.submit(download_url, media_url, output)
+                executor.submit(download_url, media_url, output, self.sleep_interval)
         except KeyboardInterrupt:
             executor.shutdown(wait=False)
 

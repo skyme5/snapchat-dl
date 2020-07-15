@@ -1,16 +1,13 @@
 """Commandline setup for snapchat_dl."""
-import concurrent.futures
-import re
 import sys
 import time
-from threading import Event
-from threading import Thread
 
 import pyperclip
 from loguru import logger
 
 from snapchat_dl.cli import parse_arguments
 from snapchat_dl.snapchat_dl import SnapchatDL
+from snapchat_dl.utils import NoStoriesAvailable
 from snapchat_dl.utils import search_usernames
 from snapchat_dl.utils import use_batch_file
 from snapchat_dl.utils import use_prefix_dir
@@ -25,6 +22,7 @@ def main():
         directory_prefix=args.save_prefix,
         max_workers=args.max_workers,
         limit_story=args.limit_story,
+        sleep_interval=args.sleep_interval,
         quiet=args.quiet,
     )
 
@@ -39,12 +37,21 @@ def main():
             log_str (str, optional): Log log_str to terminal. Defaults to None.
         """
         for username in users:
+            """Rate limiting."""
+            time.sleep(args.sleep_interval)
+
             if respect_history is True:
                 if username not in history:
                     history.append(username)
-                    downlaoder.download(username)
+                    try:
+                        downlaoder.download(username)
+                    except NoStoriesAvailable:
+                        pass
             else:
-                downlaoder.download(username)
+                try:
+                    downlaoder.download(username)
+                except NoStoriesAvailable:
+                    pass
 
     try:
         download_users(usernames)
