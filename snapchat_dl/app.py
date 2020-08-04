@@ -37,7 +37,6 @@ def main():
             log_str (str, optional): Log log_str to terminal. Defaults to None.
         """
         for username in users:
-            """Rate limiting."""
             time.sleep(args.sleep_interval)
 
             if respect_history is True:

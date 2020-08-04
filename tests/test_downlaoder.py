@@ -25,7 +25,8 @@ class Test_downloader(unittest.TestCase):
 
     def test_download_url(self):
         """Test snapchat_dl download_url."""
-        open("test_dl_23.mp4", "a").close
+        with open("test_dl_23.mp4", "a") as f:
+            f.close()
         download_url(self.test_url, "test_dl_23.mp4", sleep_interval=0)
 
     def test_download_url_file_exists(self):
