@@ -32,9 +32,9 @@
         alt="The Uncompromising Code Formatter"
       />
     </a>
-    <a href="https://github.com/skyme5/snapchat-dl">
+    <a href="https://pepy.tech/project/snapchat-dl">
       <img
-        src="https://img.shields.io/pypi/dm/snapchat-dl"
+        src="https://static.pepy.tech/badge/snapchat-dl"
         alt="Monthly Downloads"
       />
     </a>
