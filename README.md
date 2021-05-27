@@ -4,19 +4,19 @@
     Snapchat Public Stories Downloader.<br /> <br />
     <a href="https://pypi.python.org/pypi/snapchat-dl">
       <img
-        src="https://img.shields.io/pypi/v/snapchat-dl.svg"
+        src="https://img.shields.io/pypi/v/snapchat-dl.svg?cacheSeconds=360"
         alt="Python Package"
       />
     </a>
     <a href="https://pypi.python.org/pypi/snapchat-dl">
       <img
-        src="https://img.shields.io/github/workflow/status/skyme5/snapchat-dl/build"
+        src="https://img.shields.io/github/workflow/status/skyme5/snapchat-dl/build?cacheSeconds=360"
         alt="CI"
       />
     </a>
     <a href="https://codecov.io/gh/skyme5/snapchat-dl">
       <img
-        src="https://img.shields.io/codecov/c/github/skyme5/snapchat-dl"
+        src="https://img.shields.io/codecov/c/github/skyme5/snapchat-dl?cacheSeconds=360"
         alt="Code Coverage"
       />
     </a>
