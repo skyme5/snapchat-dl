@@ -21,7 +21,7 @@ def parse_arguments():
         "--scan-clipboard",
         action="store_true",
         help="Scan clipboard for story links"
-        " with the format of 'https://story.snapchat.com/<s>/<username>'",
+        " ('https://story.snapchat.com/<s>/<username>').",
         dest="scan_clipboard",
     )
 
@@ -38,7 +38,7 @@ def parse_arguments():
         "--batch-file",
         action="store",
         default=None,
-        help="Read usernames from file",
+        help="Read usernames from batch file (one username per line).",
         metavar="BATCH_FILENAME",
         dest="batch_file",
     )
@@ -48,7 +48,7 @@ def parse_arguments():
         "--directory-prefix",
         action="store",
         default=os.path.abspath(os.getcwd()),
-        help="Directory Prefix for downloading stories",
+        help="Location to store downloaded media.",
         metavar="DIRECTORY_PREFIX",
         dest="save_prefix",
     )
@@ -96,7 +96,7 @@ def parse_arguments():
         "--update-interval",
         action="store",
         default=60 * 10,
-        help="Set the update interval for new story in seconds. (Default: 10m)",
+        help="Set the update interval for checking new story in seconds. (Default: 10m)",
         metavar="INTERVAL",
         dest="interval",
         type=int,
@@ -116,7 +116,7 @@ def parse_arguments():
         "-q",
         "--quiet",
         action="store_true",
-        help="Do not print anything to the console. (errors are still logged)",
+        help="Do not print anything except errors to the console.",
     )
 
     if len(sys.argv) == 1:

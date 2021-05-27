@@ -72,18 +72,20 @@ usage: snapchat-dl [-h] [-c | -u] [-i BATCH_FILENAME] [-P DIRECTORY_PREFIX]
                    [username [username ...]]
 
 positional arguments:
-  username              At least one or more usernames to download stories for.
+  username              At least one or more usernames to download stories
+                        for.
 
 optional arguments:
   -h, --help            show this help message and exit
-  -c, --scan-clipboard  Scan clipboard for story links with the format of
-                        'https://story.snapchat.com/<s>/<username>'
+  -c, --scan-clipboard  Scan clipboard for story links
+                        ('https://story.snapchat.com/<s>/<username>').
   -u, --check-for-update
                         Periodically check for new stories.
   -i BATCH_FILENAME, --batch-file BATCH_FILENAME
-                        Read usernames from file
+                        Read usernames from batch file (one username per
+                        line).
   -P DIRECTORY_PREFIX, --directory-prefix DIRECTORY_PREFIX
-                        Directory Prefix for downloading stories
+                        Location to store downloaded media.
   -s, --scan-from-prefix
                         Scan usernames (as directory name) from prefix
                         directory.
@@ -94,11 +96,10 @@ optional arguments:
   -j MAX_WORKERS, --max-concurrent-downloads MAX_WORKERS
                         Set maximum number of parallel downloads.
   -t INTERVAL, --update-interval INTERVAL
-                        Set the update interval for new story in seconds.
-                        (Default: 10m)
+                        Set the update interval for checking new story in
+                        seconds. (Default: 10m)
   --sleep-interval INTERVAL
                         Sleep between downloads in seconds. (Default: 1s)
-  -q, --quiet           Do not print anything to the console. (errors are
-                        still logged)
+  -q, --quiet           Do not print anything except errors to the console.
 
 ```
