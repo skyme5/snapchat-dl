@@ -1,4 +1,5 @@
 """Utility functions for snapchat_dl."""
+import json
 import os
 import re
 from argparse import Namespace
@@ -35,7 +36,7 @@ def valid_username(username):
     Returns:
         bool: True if username is valid.
     """
-    match = re.match(r"(?P<username>^[\w\.\_]{3,}$)", username)
+    match = re.match(r"(?P<username>^[\-\w\.\_]{3,}$)", username)
     if match is None:
         return False
 
@@ -54,7 +55,7 @@ def search_usernames(string: str) -> list:
     return [
         username
         for username in re.findall(
-            r"https://story.snapchat.com/s/([\w_\.]{3,})", string
+            r"https://(?:story|www).snapchat.com/[suad]+/(.*)\??", string
         )
         if valid_username(username)
     ]
@@ -113,3 +114,35 @@ def use_prefix_dir(args: Namespace):
             )
 
     return usernames
+
+
+def dump_text_file(content: str, filepath: str):
+    """Write content to filepath using `tx` mode.
+
+    Args:
+        content (str): File content to write.
+        filepath (str): Filepath.
+
+    This will overwrite the file.
+    """
+    dirpath = os.path.dirname(filepath)
+
+    os.makedirs(dirpath, exist_ok=True)
+
+    if not os.path.isfile(filepath):
+        logger.debug("File written: {}".format(filepath))
+        with open(filepath, "w+") as f:
+            f.write(content)
+
+
+def dump_response(content: dict, path: str):
+    """Save JSON file
+
+    Args:
+        content: JSON data
+        path: Path to save json
+
+    Returns:
+        None
+    """
+    dump_text_file(json.dumps(content), path)

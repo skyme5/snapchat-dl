@@ -7,6 +7,7 @@ import requests
 from loguru import logger
 
 from snapchat_dl.downloader import download_url
+from snapchat_dl.utils import dump_response
 from snapchat_dl.utils import NoStoriesAvailable
 from snapchat_dl.utils import strf_time
 
@@ -21,12 +22,14 @@ class SnapchatDL:
         limit_story=-1,
         sleep_interval=1,
         quiet=False,
+        dump_json=False,
     ):
         self.directory_prefix = os.path.abspath(os.path.normpath(directory_prefix))
         self.max_workers = max_workers
         self.limit_story = limit_story
         self.sleep_interval = sleep_interval
         self.quiet = quiet
+        self.dump_json = dump_json
         self.endpoint = "https://search.snapchat.com/lookupStory?id={}"
         self.reaponse_ok = requests.codes.get("ok")
 
@@ -40,6 +43,20 @@ class SnapchatDL:
         """
         api_url = self.endpoint.format(username)
         response = requests.get(api_url)
+
+        return response
+
+    def parse_snap_user(self, response):
+        """Generate userInfo json object from story response.
+
+        Args:
+            response (dict): Story response
+
+        Returns:
+            dict: userInfo object.
+        """
+        for key in ["snapList", "thumbnailUrl"]:
+            del response[key]
 
         return response
 
@@ -58,9 +75,13 @@ class SnapchatDL:
                 logger.info("\033[91m{} has no stories\033[0m".format(username))
             raise NoStoriesAvailable
 
-        stories = response.json().get("snapList")
+        resp_json = response.json()
+        snap_user = self.parse_snap_user(dict(resp_json))
+        stories = resp_json.get("snapList")
         if self.limit_story > -1:
             stories = stories[0 : self.limit_story]
+
+        logger.info("[+] {} has {} stories".format(username, len(stories)))
 
         executor = concurrent.futures.ThreadPoolExecutor(max_workers=self.max_workers)
         try:
@@ -77,6 +98,12 @@ class SnapchatDL:
                     snap_id, username
                 )
 
+                if self.dump_json:
+                    filename_json = os.path.join(dir_name, filename + ".json")
+                    media_json = dict(media)
+                    media_json["snapUser"] = snap_user
+                    dump_response(media_json, filename_json)
+
                 media_output = os.path.join(dir_name, filename)
                 executor.submit(
                     download_url, media_url, media_output, self.sleep_interval
@@ -91,4 +118,4 @@ class SnapchatDL:
         except KeyboardInterrupt:
             executor.shutdown(wait=False)
 
-        logger.info("[+] {} has {} stories".format(username, len(stories)))
+        logger.info("[✔] {} stories downloaded".format(username, len(stories)))

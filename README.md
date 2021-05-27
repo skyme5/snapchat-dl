@@ -48,7 +48,6 @@
   </div>
 </p>
 
-
 ### Installation
 
 Install using pip,
@@ -78,7 +77,7 @@ positional arguments:
 optional arguments:
   -h, --help            show this help message and exit
   -c, --scan-clipboard  Scan clipboard for story links with the format of
-                        'https://story.snapchat.com/s/<username>'
+                        'https://story.snapchat.com/<s>/<username>'
   -u, --check-for-update
                         Periodically check for new stories.
   -i BATCH_FILENAME, --batch-file BATCH_FILENAME

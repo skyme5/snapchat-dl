@@ -24,6 +24,7 @@ def main():
         limit_story=args.limit_story,
         sleep_interval=args.sleep_interval,
         quiet=args.quiet,
+        dump_json=args.dump_json,
     )
 
     history = list()
@@ -59,10 +60,9 @@ def main():
                 logger.info("Listening for clipboard change")
 
             while True:
-                usernames = search_usernames(pyperclip.paste())
-                if args.quiet is False and len(usernames) > 0:
-                    logger.info("Adding {} user to download".format(len(usernames)))
-                download_users(usernames, respect_history=True)
+                usernames_clip = search_usernames(pyperclip.paste())
+                if len(usernames_clip) > 0:
+                    download_users(usernames_clip, respect_history=True)
 
                 time.sleep(1)
 

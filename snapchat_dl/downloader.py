@@ -45,5 +45,5 @@ def download_url(url: str, dest: str, sleep_interval: int):
                 handle.close()
             except requests.exceptions.RequestException as e:
                 logger.error(e)
-    except:
-        FileExistsError
+    except FileExistsError as e:
+        pass

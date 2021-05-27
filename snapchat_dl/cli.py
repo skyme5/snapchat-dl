@@ -21,7 +21,7 @@ def parse_arguments():
         "--scan-clipboard",
         action="store_true",
         help="Scan clipboard for story links"
-        " with the format of 'https://story.snapchat.com/s/<username>'",
+        " with the format of 'https://story.snapchat.com/<s>/<username>'",
         dest="scan_clipboard",
     )
 
@@ -59,6 +59,14 @@ def parse_arguments():
         action="store_true",
         help="Scan usernames (as directory name) from prefix directory.",
         dest="scan_prefix",
+    )
+
+    parser.add_argument(
+        "-d",
+        "--dump-json",
+        action="store_true",
+        help="Save metadata to a JSON file next to downloaded videos/pictures.",
+        dest="dump_json",
     )
 
     parser.add_argument(
