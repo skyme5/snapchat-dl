@@ -26,7 +26,7 @@ class Test_utils(unittest.TestCase):
     def test_search_usernames(self):
         """Test usernames search in string."""
         string = """
-            https://story.snapchat.com/s/in #invalid username
+            https://story.snapchat.com/s/in#invalidusername
             https://story.snapchat.com/s/username1
             https://story.snapchat.com/s/user.name2
             https://story.snapchat.com/s/user_name

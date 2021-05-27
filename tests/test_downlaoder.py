@@ -1,5 +1,6 @@
 """Tests for `snapchat_dl` package."""
 import os
+import shutil
 import unittest
 
 from requests.exceptions import HTTPError
@@ -19,7 +20,7 @@ class Test_downloader(unittest.TestCase):
     @classmethod
     def tearDownClass(cls):
         """Tear down test fixtures."""
-        for file in ["test_dl_23.mp4", "test_dl_23.txt"]:
+        for file in ["test_dl_23.mp4", "test_dl_23.html"]:
             if os.path.isfile(file):
                 os.remove(file)
 
@@ -27,14 +28,9 @@ class Test_downloader(unittest.TestCase):
         """Test snapchat_dl download_url."""
         with open("test_dl_23.mp4", "a") as f:
             f.close()
-        download_url(self.test_url, "test_dl_23.mp4", sleep_interval=0)
-
-    def test_download_url_file_exists(self):
-        """Test snapchat_dl download_url with file downloaded."""
-        with self.assertRaises(FileExistsError):
-            download_url(self.test_url, "test_dl_23.mp4", sleep_interval=0)
+        download_url(self.test_url, "test_dl_23", sleep_interval=0)
 
     def test_download_url_raise(self):
         """Test snapchat_dl download_url with invalid url."""
         with self.assertRaises(HTTPError):
-            download_url(self.test_url404, "test_dl_23.txt", sleep_interval=0)
+            download_url(self.test_url404, "test_dl_23", sleep_interval=0)

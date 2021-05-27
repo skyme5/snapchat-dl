@@ -1,144 +1,68 @@
 {
-    "story": {
-        "id": "invalidusername",
-        "metadata": {
-            "storyType": "TYPE_PUBLIC_USER_STORY",
-            "emoji": "⭐",
-            "canonicalUrlSuffix": "story/invalidusername"
-        },
-        "snaps": [
-            {
-                "id": "MCV4AYbWTXOeYnGpdbZddAAAgg59YVZJW-K_EAXLBuoUtAXLBuoCx_____w",
-                "media": {
-                    "type": "IMAGE",
-                    "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerJoyrides.jpg"
-                },
-                "captureTimeSecs": "1592388124"
-            },
-            {
-                "id": "MCV4AYbWTXOeYnGpdbZddAAAgMh_o7Z5Xr974AXLBu8Z3AXLBu6oI_____w",
-                "media": {
-                    "type": "VIDEO",
-                    "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-                    "mediaStreamingUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-                    "mediaPreviewUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
-                },
-                "overlayImage": {
-                    "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-                    "mediaStreamingUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
-                },
-                "captureTimeSecs": "1592388200"
-            },
-            {
-                "id": "MCV4AYbWTXOeYnGpdbZddAAAgaFXgg8-u2ZPIAXLBu9HHAXLBu6oS_____w",
-                "media": {
-                    "type": "VIDEO",
-                    "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-                    "mediaStreamingUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-                    "mediaPreviewUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
-                },
-                "overlayImage": {
-                    "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-                    "mediaStreamingUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
-                },
-                "captureTimeSecs": "1592388200"
-            },
-            {
-                "id": "MCV4AYbWTXOeYnGpdbZddAAAg0jxXYqcByafdAXLBu9JDAXLBu6oc_____w",
-                "media": {
-                    "type": "VIDEO",
-                    "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-                    "mediaStreamingUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-                    "mediaPreviewUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
-                },
-                "overlayImage": {
-                    "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-                    "mediaStreamingUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
-                },
-                "captureTimeSecs": "1592388200"
-            },
-            {
-                "id": "MCV4AYbWTXOeYnGpdbZddAAAgILe9cwW9HZioAXLBu8yMAXLBu6om_____w",
-                "media": {
-                    "type": "VIDEO",
-                    "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-                    "mediaStreamingUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-                    "mediaPreviewUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
-                },
-                "overlayImage": {
-                    "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-                    "mediaStreamingUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
-                },
-                "captureTimeSecs": "1592388200"
-            },
-            {
-                "id": "MCV4AYbWTXOeYnGpdbZddAAAgSHCPcZjqPZcrAXLCAPeiAXLCANi6_____w",
-                "media": {
-                    "type": "VIDEO",
-                    "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-                    "mediaStreamingUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-                    "mediaPreviewUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
-                },
-                "captureTimeSecs": "1592392734"
-            },
-            {
-                "id": "MCV4AYbWTXOeYnGpdbZddAAAgCkdps0exX9MeAXLCAQb7AXLCANjE_____w",
-                "media": {
-                    "type": "VIDEO",
-                    "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-                    "mediaStreamingUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-                    "mediaPreviewUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
-                },
-                "captureTimeSecs": "1592392734"
-            },
-            {
-                "id": "MCV4AYbWTXOeYnGpdbZddAAAg-pIeprTKdfvPAXLCARQOAXLCANjO_____w",
-                "media": {
-                    "type": "VIDEO",
-                    "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-                    "mediaStreamingUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-                    "mediaPreviewUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
-                },
-                "captureTimeSecs": "1592392734"
-            },
-            {
-                "id": "MCV4AYbWTXOeYnGpdbZddAAAg3mi0ooa_vzFyAXLCARgIAXLCANjY_____w",
-                "media": {
-                    "type": "VIDEO",
-                    "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-                    "mediaStreamingUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-                    "mediaPreviewUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
-                },
-                "captureTimeSecs": "1592392734"
-            },
-            {
-                "id": "MCV4AYbWTXOeYnGpdbZddAAAgspVZbp5Dq_2CAXLCARieAXLCANji_____w",
-                "media": {
-                    "type": "VIDEO",
-                    "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-                    "mediaStreamingUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-                    "mediaPreviewUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
-                },
-                "captureTimeSecs": "1592392734"
-            },
-            {
-                "id": "MCV4AYbWTXOeYnGpdbZddAAAgmRqeqKZLvY3wAXLCARpSAXLCANjs_____w",
-                "media": {
-                    "type": "VIDEO",
-                    "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-                    "mediaStreamingUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-                    "mediaPreviewUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
-                },
-                "captureTimeSecs": "1592392734"
-            },
-            {
-                "id": "MCV4AYbWTXOeYnGpdbZddAAAgEeselKBHwGfMAXLGJA-ZAXLGI-_B_____w",
-                "media": {
-                    "type": "IMAGE",
-                    "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerJoyrides.jpg"
-                },
-                "captureTimeSecs": "1592462143"
-            }
-        ]
+  "storyID": "c:LCXi7xRVtqkZ0fKVsCq1_HbiAYVsXZa7CeuJhs9sNworIwwaGVngpB7T6Q",
+  "storyTitle": "invalidusername 🦄",
+  "storyType": "TYPE_PUBLIC_USER_STORY",
+  "emoji": "⭐",
+  "isOfficial": true,
+  "isPopular": true,
+  "thumbnailUrl": [
+    "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerJoyrides.jpg"
+  ],
+  "userName": "invalidusername",
+  "timestampInSec": 0,
+  "snapList": [
+    {
+      "snapIndex": 0,
+      "snapTitle": "",
+      "snapSubtitles": "⭐",
+      "snapId": "NIVYnu8lT6O9hJ6qBt6IsAAAg98Hn_JigoMeWAXmp2xeYAXmp2ww8_____w",
+      "timestampInSec": 1622052375,
+      "snapUrls": {
+        "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+        "mediaPreviewUrl": "",
+        "snapMediaType": "",
+        "overlayUrl": ""
+      }
+    },
+    {
+      "snapIndex": 1,
+      "snapTitle": "",
+      "snapSubtitles": "⭐",
+      "snapId": "NIVYnu8lT6O9hJ6qBt6IsAAAgF9qKlXx88lVuAXmp2xQIAXmp2wxG_____w",
+      "timestampInSec": 1622052375,
+      "snapUrls": {
+        "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+        "mediaPreviewUrl": "",
+        "snapMediaType": "",
+        "overlayUrl": ""
+      }
+    },
+    {
+      "snapIndex": 2,
+      "snapTitle": "",
+      "snapSubtitles": "⭐",
+      "snapId": "NIVYnu8lT6O9hJ6qBt6IsAAAgheuuxV5Nz4wyAXmp29nTAXmp29TV_____w",
+      "timestampInSec": 1622052426,
+      "snapUrls": {
+        "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+        "mediaPreviewUrl": "",
+        "snapMediaType": "",
+        "overlayUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerJoyrides.jpg"
+      }
+    },
+    {
+      "snapIndex": 3,
+      "snapTitle": "",
+      "snapSubtitles": "⭐",
+      "snapId": "NIVYnu8lT6O9hJ6qBt6IsAAAg0-VngD78RNz9AXmr9AX3AXmr9AL6_____w",
+      "timestampInSec": 1622087566,
+      "snapUrls": {
+        "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerJoyrides.jpg",
+        "mediaPreviewUrl": "",
+        "snapMediaType": "",
+        "overlayUrl": ""
+      }
     }
+  ],
+  "lensInfo": null
 }

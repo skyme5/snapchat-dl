@@ -1,6 +1,7 @@
 """The Main Snapchat Downloader Class."""
 import concurrent.futures
 import os
+import re
 
 import requests
 from loguru import logger
@@ -26,11 +27,10 @@ class SnapchatDL:
         self.limit_story = limit_story
         self.sleep_interval = sleep_interval
         self.quiet = quiet
-        self.endpoint = "https://storysharing.snapchat.com/v1/fetch/{}"
-        "?request_origin=ORIGIN_WEB_PLAYER"
+        self.endpoint = "https://search.snapchat.com/lookupStory?id={}"
         self.reaponse_ok = requests.codes.get("ok")
 
-    def stories_response(self, username):
+    def _api_fetch_story(self, username):
         """Download user stories.
 
         Args:
@@ -43,23 +43,6 @@ class SnapchatDL:
 
         return response
 
-    def media_type(self, media_type):
-        """Return file extension for Media Type.
-
-        Args:
-            media_type (str): Snapchat Snap Media Type
-
-        Returns:
-            str: File Extension for `media_type`, one of the
-                 `IMAGE`, `VIDEO`, `VIDEO_NO_SOUND`
-        """
-        if media_type == "IMAGE":
-            return ".jpg"
-        if media_type == "VIDEO":
-            return ".mp4"
-        if media_type == "VIDEO_NO_SOUND":
-            return ".mp4"
-
     def download(self, username):
         """Download Snapchat Story for `username`.
 
@@ -69,33 +52,42 @@ class SnapchatDL:
         Returns:
             [bool]: story downloader
         """
-        response = self.stories_response(username)
-        if (
-            response.status_code != 200
-            or response.json().get("story").get("snaps") is None
-        ):
+        response = self._api_fetch_story(username)
+        if response.status_code != 200:
             if self.quiet is False:
                 logger.info("\033[91m{} has no stories\033[0m".format(username))
             raise NoStoriesAvailable
 
-        stories = response.json().get("story").get("snaps")
+        stories = response.json().get("snapList")
         if self.limit_story > -1:
             stories = stories[0 : self.limit_story]
 
         executor = concurrent.futures.ThreadPoolExecutor(max_workers=self.max_workers)
         try:
             for media in stories:
-                media_url = media["media"]["mediaUrl"]
-                timestamp = int(media["captureTimeSecs"])
+                snap_id = media["snapId"]
+                media_url = media["snapUrls"]["mediaUrl"]
+                overlay_url = media["snapUrls"]["overlayUrl"]
+                timestamp = int(media["timestampInSec"])
                 date_str = strf_time(timestamp, "%Y-%m-%d")
-                file_ext = self.media_type(media["media"]["type"])
 
                 dir_name = os.path.join(self.directory_prefix, username, date_str)
-                filename = strf_time(timestamp, "%Y-%m-%d_%H-%M-%S {} {}{}").format(
-                    media.get("id"), username, file_ext
+
+                filename = strf_time(timestamp, "%Y-%m-%d_%H-%M-%S {} {}").format(
+                    snap_id, username
                 )
-                output = os.path.join(dir_name, filename)
-                executor.submit(download_url, media_url, output, self.sleep_interval)
+
+                media_output = os.path.join(dir_name, filename)
+                executor.submit(
+                    download_url, media_url, media_output, self.sleep_interval
+                )
+
+                if len(overlay_url) > 0:
+                    overlay_output = os.path.join(dir_name, filename + "_ol")
+                    executor.submit(
+                        download_url, overlay_url, overlay_output, self.sleep_interval
+                    )
+
         except KeyboardInterrupt:
             executor.shutdown(wait=False)
 

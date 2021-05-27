@@ -52,10 +52,10 @@ lint: ## check style with flake8
 	black snapchat_dl tests
 
 test: ## run tests quickly with the default Python
-	pytest tests
+	pytest tests --cache-clear
 
 test-all: ## run tests on every Python version with tox
-	pytest tests
+	pytest tests --cache-clear
 
 coverage: ## check code coverage quickly with the default Python
 	coverage run -m pytest -v tests
