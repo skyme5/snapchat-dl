@@ -72,7 +72,7 @@ class SnapchatDL:
         response = self._api_fetch_story(username)
         if response.status_code != 200:
             if self.quiet is False:
-                logger.info("\033[91m{} has no stories\033[0m".format(username))
+                logger.info("\033[91m{}\033[0m has no stories".format(username))
             raise NoStoriesAvailable
 
         resp_json = response.json()

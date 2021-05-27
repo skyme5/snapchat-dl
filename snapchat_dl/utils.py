@@ -36,7 +36,7 @@ def valid_username(username):
     Returns:
         bool: True if username is valid.
     """
-    match = re.match(r"(?P<username>^[\-\w\.\_]{3,}$)", username)
+    match = re.match(r"(?P<username>^[\-\w\.\_]{3,15}$)", username)
     if match is None:
         return False
 
@@ -55,7 +55,7 @@ def search_usernames(string: str) -> list:
     return [
         username
         for username in re.findall(
-            r"https://(?:story|www).snapchat.com/[suad]+/(.*)\??", string
+            r"https?://(?:story|www).snapchat.com/[suad]+/([\-\w\.\_]{3,15})", string
         )
         if valid_username(username)
     ]
@@ -130,7 +130,6 @@ def dump_text_file(content: str, filepath: str):
     os.makedirs(dirpath, exist_ok=True)
 
     if not os.path.isfile(filepath):
-        logger.debug("File written: {}".format(filepath))
         with open(filepath, "w+") as f:
             f.write(content)
 
