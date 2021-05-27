@@ -12,7 +12,7 @@ def parse_arguments():
         "username",
         action="store",
         nargs="*",
-        help="Atleast one or more usernames to download stories for.",
+        help="At least one or more usernames to download stories for.",
     )
 
     any_one_group = parser.add_mutually_exclusive_group()
@@ -71,11 +71,11 @@ def parse_arguments():
 
     parser.add_argument(
         "-l",
-        "--limit-story-count",
+        "--limit-story",
         action="store",
         default=-1,
         help="Set maximum number of stories to download.",
-        metavar="NUM_STORY",
+        metavar="MAX_NUM_STORY",
         dest="limit_story",
         type=int,
     )

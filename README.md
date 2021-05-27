@@ -67,12 +67,12 @@ pip install git+git://github.com/skyme5/snapchat-dl
 ```text
 
 usage: snapchat-dl [-h] [-c | -u] [-i BATCH_FILENAME] [-P DIRECTORY_PREFIX]
-                   [-s] [-l NUM_STORY] [-j MAX_WORKERS] [-t INTERVAL]
+                   [-s] [-d] [-l MAX_NUM_STORY] [-j MAX_WORKERS] [-t INTERVAL]
                    [--sleep-interval INTERVAL] [-q]
                    [username [username ...]]
 
 positional arguments:
-  username              Atleast one or more usernames to download stories for.
+  username              At least one or more usernames to download stories for.
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -87,7 +87,9 @@ optional arguments:
   -s, --scan-from-prefix
                         Scan usernames (as directory name) from prefix
                         directory.
-  -l NUM_STORY, --limit-story-count NUM_STORY
+  -d, --dump-json       Save metadata to a JSON file next to downloaded
+                        videos/pictures.
+  -l MAX_NUM_STORY, --limit-story MAX_NUM_STORY
                         Set maximum number of stories to download.
   -j MAX_WORKERS, --max-concurrent-downloads MAX_WORKERS
                         Set maximum number of parallel downloads.
