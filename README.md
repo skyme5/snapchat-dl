@@ -62,6 +62,8 @@ Install from GitHub,
 pip install git+git://github.com/skyme5/snapchat-dl
 ```
 
+Unix users might want to add `--user` flag to install without requiring `sudo`.
+
 ### Usage
 
 ```text
