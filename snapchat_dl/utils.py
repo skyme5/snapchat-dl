@@ -120,7 +120,7 @@ def use_prefix_dir(args: Namespace):
                 "Added {} usernames from {}".format(len(usernames), args.save_prefix)
             )
 
-    return usernames
+    return list(sorted(set(usernames)))
 
 
 def dump_text_file(content: str, filepath: str):
