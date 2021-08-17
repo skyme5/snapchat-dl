@@ -30,8 +30,9 @@ class Test_utils(unittest.TestCase):
             https://story.snapchat.com/s/username1
             https://story.snapchat.com/s/user.name2
             https://story.snapchat.com/s/user_name
+            https://story.snapchat.com/@user_name
         """
-        usernames = ["username1", "user.name2", "user_name"]
+        usernames = ["user.name2", "user_name", "username1"]
         self.assertListEqual(search_usernames(string), usernames)
 
     def test_use_batch_file(self):

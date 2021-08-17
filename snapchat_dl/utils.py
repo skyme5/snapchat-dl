@@ -52,13 +52,20 @@ def search_usernames(string: str) -> list:
     Returns:
         list: usernames found in string
     """
-    return [
-        username
-        for username in re.findall(
-            r"https?://(?:story|www).snapchat.com/[suad]+/([\-\w\.\_]{3,15})", string
+    return list(
+        sorted(
+            set(
+                [
+                    username
+                    for username in re.findall(
+                        r"https?://(?:story|www).snapchat.com/(?:[suad]+/|@)([\-\w\.\_]{3,15})",
+                        string,
+                    )
+                    if valid_username(username)
+                ]
+            )
         )
-        if valid_username(username)
-    ]
+    )
 
 
 def use_batch_file(args: Namespace) -> list:
