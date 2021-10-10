@@ -27,18 +27,15 @@ def download_url(url: str, dest: str, sleep_interval: int):
     if response.status_code != requests.codes.get("ok"):
         raise response.raise_for_status()
 
-    dest_ext = response.headers.get("content-type").split("/").pop()
-    dest_file = dest + "." + dest_ext
-
-    if os.path.isfile(dest_file) and os.path.getsize(dest_file) == response.headers.get(
+    if os.path.isfile(dest) and os.path.getsize(dest) == response.headers.get(
         "content-length"
     ):
         raise FileExistsError
 
-    if os.path.isfile(dest_file) and os.path.getsize(dest_file) == 0:
-        os.remove(dest_file)
+    if os.path.isfile(dest) and os.path.getsize(dest) == 0:
+        os.remove(dest)
     try:
-        with open(dest_file, "xb") as handle:
+        with open(dest, "xb") as handle:
             try:
                 for data in response.iter_content(chunk_size=4194304):
                     handle.write(data)
