@@ -7,6 +7,7 @@ import unittest
 from unittest import mock
 
 from snapchat_dl.snapchat_dl import SnapchatDL
+from snapchat_dl.utils import APIResponseError
 from snapchat_dl.utils import NoStoriesAvailable
 
 
@@ -25,6 +26,9 @@ class TestSnapchat_dl(unittest.TestCase):
         self.test_url = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
         self.test_url404 = "https://google.com/error.html"
         self.username = "invalidusername"
+        self.html = open(
+            "tests/mock_data/invalidusername.html", "r", encoding="utf8"
+        ).read()
 
     def test_class_init(self):
         """Test snapchat_dl init."""
@@ -32,21 +36,11 @@ class TestSnapchat_dl(unittest.TestCase):
 
     def test_get_stories_no_stories(self):
         """Test snapchat_dl Stories are not available."""
-        with self.assertRaises(NoStoriesAvailable):
+        with self.assertRaises(APIResponseError):
             self.snapchat_dl.download("username")
 
-    @mock.patch("snapchat_dl.snapchat_dl.SnapchatDL._api_fetch_story")
-    def test_get_stories_ok(self, fake_get):
+    @mock.patch("snapchat_dl.snapchat_dl.SnapchatDL._api_response")
+    def test_get_stories_web_ok(self, api_response):
         """Test snapchat_dl Download."""
-
-        class Mock_Response:
-            status_code = 200
-
-            def json(self) -> dict:
-                with open(
-                    "tests/mock_data/invalidusername.json", "r", encoding="utf8"
-                ) as f:
-                    return json.load(f)
-
-        fake_get.return_value = Mock_Response()
+        api_response.return_value = self.html
         self.snapchat_dl.download(self.username)

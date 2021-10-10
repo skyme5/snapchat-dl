@@ -1,5 +1,6 @@
 """The Main Snapchat Downloader Class."""
 import concurrent.futures
+import json
 import os
 import re
 
@@ -7,9 +8,13 @@ import requests
 from loguru import logger
 
 from snapchat_dl.downloader import download_url
+from snapchat_dl.utils import APIResponseError
 from snapchat_dl.utils import dump_response
+from snapchat_dl.utils import MEDIA_TYPE
 from snapchat_dl.utils import NoStoriesAvailable
 from snapchat_dl.utils import strf_time
+from snapchat_dl.utils import util_web_story
+from snapchat_dl.utils import util_web_user_info
 
 
 class SnapchatDL:
@@ -30,36 +35,39 @@ class SnapchatDL:
         self.sleep_interval = sleep_interval
         self.quiet = quiet
         self.dump_json = dump_json
-        self.endpoint = "https://storysharing.snapchat.com/v1/fetch/{}?request_origin=ORIGIN_WEB_PLAYER"
+        self.endpoint_web = "https://story.snapchat.com/@{}"
+        self.regexp_web_json = (
+            r'<script\s*id="__NEXT_DATA__"\s*type="application\/json">([^<]+)<\/script>'
+        )
         self.reaponse_ok = requests.codes.get("ok")
 
-    def _api_fetch_story(self, username):
-        """Download user stories.
+    def _api_response(self, username):
+        web_url = self.endpoint_web.format(username)
+        return requests.get(web_url).text
+
+    def _web_fetch_story(self, username):
+        """Download user stories from Web.
 
         Args:
             username (str): Snapchat `username`
 
-        Returns: (requests.Response): response
-        """
-        api_url = self.endpoint.format(username)
-        response = requests.get(api_url)
-
-        return response
-
-    def parse_snap_user(self, response):
-        """Generate userInfo json object from story response.
-
-        Args:
-            response (dict): Story response
+        Raises:
+            APIResponseError: API Error
 
         Returns:
-            dict: userInfo object.
+            (dict, dict): user_info, stories
         """
-        userInfo = {"id": response["id"]}
-        for key in list(["emoji", "title"]):
-            userInfo[key] = response["metadata"][key]
+        response = self._api_response(username)
+        response_json_raw = re.findall(self.regexp_web_json, response)
 
-        return userInfo
+        response_json = json.loads(response_json_raw[0])
+        try:
+            user_info = util_web_user_info(response_json)
+            stories = util_web_story(response_json)
+        except KeyError:
+            raise APIResponseError
+
+        return stories, user_info
 
     def download(self, username):
         """Download Snapchat Story for `username`.
@@ -70,15 +78,14 @@ class SnapchatDL:
         Returns:
             [bool]: story downloader
         """
-        response = self._api_fetch_story(username)
-        if response.status_code != 200:
+        stories, snap_user = self._web_fetch_story(username)
+
+        if len(stories) == 0:
             if self.quiet is False:
                 logger.info("\033[91m{}\033[0m has no stories".format(username))
+
             raise NoStoriesAvailable
 
-        resp_json = response.json()
-        snap_user = self.parse_snap_user(resp_json.get("story"))
-        stories = resp_json.get("story").get("snaps")
         if self.limit_story > -1:
             stories = stories[0 : self.limit_story]
 
@@ -87,20 +94,16 @@ class SnapchatDL:
         executor = concurrent.futures.ThreadPoolExecutor(max_workers=self.max_workers)
         try:
             for media in stories:
-                snap_id = media["id"]
-                media_url = media["media"]["mediaUrl"]
-                overlay_url = (
-                    media["overlayImage"]["mediaUrl"]
-                    if media["media"]["type"] is "VIDEO"
-                    else ""
-                )
-                timestamp = int(media["captureTimeSecs"])
+                snap_id = media["snapId"]["value"]
+                media_url = media["snapUrls"]["mediaUrl"]
+                media_type = media["snapMediaType"]
+                timestamp = int(media["timestampInSec"]["value"])
                 date_str = strf_time(timestamp, "%Y-%m-%d")
 
                 dir_name = os.path.join(self.directory_prefix, username, date_str)
 
-                filename = strf_time(timestamp, "%Y-%m-%d_%H-%M-%S {} {}").format(
-                    snap_id, username
+                filename = strf_time(timestamp, "%Y-%m-%d_%H-%M-%S {} {}.{}").format(
+                    snap_id, username, MEDIA_TYPE[media_type]
                 )
 
                 if self.dump_json:
@@ -113,12 +116,6 @@ class SnapchatDL:
                 executor.submit(
                     download_url, media_url, media_output, self.sleep_interval
                 )
-
-                if len(overlay_url) > 0:
-                    overlay_output = os.path.join(dir_name, filename + "_ol")
-                    executor.submit(
-                        download_url, overlay_url, overlay_output, self.sleep_interval
-                    )
 
         except KeyboardInterrupt:
             executor.shutdown(wait=False)

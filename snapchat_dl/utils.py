@@ -8,8 +8,17 @@ from datetime import datetime
 from loguru import logger
 
 
+MEDIA_TYPE = ["jpg", "mp4"]
+
+
 class NoStoriesAvailable(Exception):
     """Exception when there are no stories."""
+
+    pass
+
+
+class APIResponseError(Exception):
+    """Exception when api doesn't return 200"""
 
     pass
 
@@ -152,3 +161,11 @@ def dump_response(content: dict, path: str):
         None
     """
     dump_text_file(json.dumps(content), path)
+
+
+def util_web_user_info(content: dict):
+    return content["props"]["pageProps"]["userProfile"]["publicProfileInfo"]
+
+
+def util_web_story(content: dict):
+    return content["props"]["pageProps"]["story"]["snapList"]
