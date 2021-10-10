@@ -30,7 +30,7 @@ class SnapchatDL:
         self.sleep_interval = sleep_interval
         self.quiet = quiet
         self.dump_json = dump_json
-        self.endpoint = "https://search.snapchat.com/lookupStory?id={}"
+        self.endpoint = "https://storysharing.snapchat.com/v1/fetch/{}?request_origin=ORIGIN_WEB_PLAYER"
         self.reaponse_ok = requests.codes.get("ok")
 
     def _api_fetch_story(self, username):
@@ -55,10 +55,11 @@ class SnapchatDL:
         Returns:
             dict: userInfo object.
         """
-        for key in ["snapList", "thumbnailUrl"]:
-            del response[key]
+        userInfo = {"id": response["id"]}
+        for key in list(["emoji", "title"]):
+            userInfo[key] = response["metadata"][key]
 
-        return response
+        return userInfo
 
     def download(self, username):
         """Download Snapchat Story for `username`.
@@ -76,8 +77,8 @@ class SnapchatDL:
             raise NoStoriesAvailable
 
         resp_json = response.json()
-        snap_user = self.parse_snap_user(dict(resp_json))
-        stories = resp_json.get("snapList")
+        snap_user = self.parse_snap_user(resp_json.get("story"))
+        stories = resp_json.get("story").get("snaps")
         if self.limit_story > -1:
             stories = stories[0 : self.limit_story]
 
@@ -86,10 +87,14 @@ class SnapchatDL:
         executor = concurrent.futures.ThreadPoolExecutor(max_workers=self.max_workers)
         try:
             for media in stories:
-                snap_id = media["snapId"]
-                media_url = media["snapUrls"]["mediaUrl"]
-                overlay_url = media["snapUrls"]["overlayUrl"]
-                timestamp = int(media["timestampInSec"])
+                snap_id = media["id"]
+                media_url = media["media"]["mediaUrl"]
+                overlay_url = (
+                    media["overlayImage"]["mediaUrl"]
+                    if media["media"]["type"] is "VIDEO"
+                    else ""
+                )
+                timestamp = int(media["captureTimeSecs"])
                 date_str = strf_time(timestamp, "%Y-%m-%d")
 
                 dir_name = os.path.join(self.directory_prefix, username, date_str)

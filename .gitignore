@@ -106,3 +106,7 @@ ENV/
 cmd.txt
 
 .test-data/
+*.jpg
+*.png
+*.mp4
+*.jpeg
