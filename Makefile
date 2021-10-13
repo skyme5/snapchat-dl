@@ -51,13 +51,13 @@ clean-test: ## remove test and coverage artifacts
 lint: ## check style with flake8
 	black snapchat_dl tests
 
-test: ## run tests quickly with the default Python
+test: clean-test ## run tests quickly with the default Python
 	pytest tests --cache-clear
 
-test-all: ## run tests on every Python version with tox
+test-all: clean-test ## run tests on every Python version with tox
 	pytest tests --cache-clear
 
-coverage: ## check code coverage quickly with the default Python
+coverage: clean-test ## check code coverage quickly with the default Python
 	coverage run -m pytest -v tests
 	coverage report -m --skip-covered
 	coverage html
