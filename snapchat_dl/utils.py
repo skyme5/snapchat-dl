@@ -164,8 +164,12 @@ def dump_response(content: dict, path: str):
 
 
 def util_web_user_info(content: dict):
-    return content["props"]["pageProps"]["userProfile"]["publicProfileInfo"]
+    user_profile = content["props"]["pageProps"]["userProfile"]
+    field_id = user_profile["$case"]
+    return user_profile[field_id]
 
 
 def util_web_story(content: dict):
-    return content["props"]["pageProps"]["story"]["snapList"]
+    if "story" in content["props"]["pageProps"]:
+        return content["props"]["pageProps"]["story"]["snapList"]
+    return list()
