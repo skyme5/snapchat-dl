@@ -11,14 +11,20 @@ from loguru import logger
 MEDIA_TYPE = ["jpg", "mp4"]
 
 
-class NoStoriesAvailable(Exception):
-    """Exception when there are no stories."""
+class NoStoriesFound(Exception):
+    """No stories found."""
 
     pass
 
 
 class APIResponseError(Exception):
-    """Exception when api doesn't return 200"""
+    """Invalid API Response"""
+
+    pass
+
+
+class UserNotFoundError(Exception):
+    """User not found"""
 
     pass
 
@@ -161,15 +167,3 @@ def dump_response(content: dict, path: str):
         None
     """
     dump_text_file(json.dumps(content), path)
-
-
-def util_web_user_info(content: dict):
-    user_profile = content["props"]["pageProps"]["userProfile"]
-    field_id = user_profile["$case"]
-    return user_profile[field_id]
-
-
-def util_web_story(content: dict):
-    if "story" in content["props"]["pageProps"]:
-        return content["props"]["pageProps"]["story"]["snapList"]
-    return list()

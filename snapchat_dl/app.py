@@ -7,10 +7,11 @@ from loguru import logger
 
 from snapchat_dl.cli import parse_arguments
 from snapchat_dl.snapchat_dl import SnapchatDL
-from snapchat_dl.utils import NoStoriesAvailable
+from snapchat_dl.utils import NoStoriesFound
 from snapchat_dl.utils import search_usernames
 from snapchat_dl.utils import use_batch_file
 from snapchat_dl.utils import use_prefix_dir
+from snapchat_dl.utils import UserNotFoundError
 
 
 def main():
@@ -45,12 +46,12 @@ def main():
                     history.append(username)
                     try:
                         downlaoder.download(username)
-                    except NoStoriesAvailable:
+                    except (NoStoriesFound, UserNotFoundError):
                         pass
             else:
                 try:
                     downlaoder.download(username)
-                except NoStoriesAvailable:
+                except (NoStoriesFound, UserNotFoundError):
                     pass
 
     try:

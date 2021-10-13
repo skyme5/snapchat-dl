@@ -23,7 +23,11 @@ def download_url(url: str, dest: str, sleep_interval: int):
     """Rate limiting."""
     time.sleep(sleep_interval)
 
-    response = requests.get(url, stream=True, timeout=10)
+    try:
+        response = requests.get(url, stream=True, timeout=10)
+    except requests.exceptions.ConnectTimeout:
+        response = requests.get(url, stream=True, timeout=10)
+
     if response.status_code != requests.codes.get("ok"):
         raise response.raise_for_status()
 

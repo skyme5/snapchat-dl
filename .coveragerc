@@ -1,12 +1,13 @@
 [report]
 exclude_lines =
+    except FileExistsError as e:
     except KeyboardInterrupt:
+    except requests.exceptions.ConnectTimeout:
     except requests.exceptions.RequestException as e:
     if self.quiet is False:
     raise FileExistsError
     raise NoStoriesAvailable
     return response
-    except FileExistsError as e:
 
 
 [run]

@@ -8,7 +8,8 @@ from unittest import mock
 
 from snapchat_dl.snapchat_dl import SnapchatDL
 from snapchat_dl.utils import APIResponseError
-from snapchat_dl.utils import NoStoriesAvailable
+from snapchat_dl.utils import NoStoriesFound
+from snapchat_dl.utils import UserNotFoundError
 
 
 def teardown_module(module):
@@ -29,6 +30,9 @@ class TestSnapchat_dl(unittest.TestCase):
         self.html = open(
             "tests/mock_data/invalidusername.html", "r", encoding="utf8"
         ).read()
+        self.html_api_error = open(
+            "tests/mock_data/api-error.html", "r", encoding="utf8"
+        ).read()
         self.html_nostories = open(
             "tests/mock_data/invalidusername-nostories.html", "r", encoding="utf8"
         ).read()
@@ -39,8 +43,15 @@ class TestSnapchat_dl(unittest.TestCase):
 
     def test_invalid_username(self):
         """Test snapchat_dl Stories are not available."""
-        with self.assertRaises(APIResponseError):
+        with self.assertRaises(UserNotFoundError):
             self.snapchat_dl.download("username")
+
+    @mock.patch("snapchat_dl.snapchat_dl.SnapchatDL._api_response")
+    def test_api_error(self, api_response):
+        """Test snapchat_dl Download."""
+        api_response.return_value = self.html_api_error
+        with self.assertRaises(APIResponseError):
+            self.snapchat_dl.download(self.username)
 
     @mock.patch("snapchat_dl.snapchat_dl.SnapchatDL._api_response")
     def test_get_stories(self, api_response):
@@ -52,5 +63,5 @@ class TestSnapchat_dl(unittest.TestCase):
     def test_no_stories(self, api_response):
         """Test snapchat_dl Download."""
         api_response.return_value = self.html_nostories
-        with self.assertRaises(NoStoriesAvailable):
+        with self.assertRaises(NoStoriesFound):
             self.snapchat_dl.download(self.username)

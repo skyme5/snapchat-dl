@@ -11,10 +11,9 @@ from snapchat_dl.downloader import download_url
 from snapchat_dl.utils import APIResponseError
 from snapchat_dl.utils import dump_response
 from snapchat_dl.utils import MEDIA_TYPE
-from snapchat_dl.utils import NoStoriesAvailable
+from snapchat_dl.utils import NoStoriesFound
 from snapchat_dl.utils import strf_time
-from snapchat_dl.utils import util_web_story
-from snapchat_dl.utils import util_web_user_info
+from snapchat_dl.utils import UserNotFoundError
 
 
 class SnapchatDL:
@@ -60,14 +59,27 @@ class SnapchatDL:
         response = self._api_response(username)
         response_json_raw = re.findall(self.regexp_web_json, response)
 
-        response_json = json.loads(response_json_raw[0])
         try:
+            response_json = json.loads(response_json_raw[0])
+
+            def util_web_user_info(content: dict):
+                if "userProfile" in content["props"]["pageProps"]:
+                    user_profile = content["props"]["pageProps"]["userProfile"]
+                    field_id = user_profile["$case"]
+                    return user_profile[field_id]
+                else:
+                    raise UserNotFoundError
+
+            def util_web_story(content: dict):
+                if "story" in content["props"]["pageProps"]:
+                    return content["props"]["pageProps"]["story"]["snapList"]
+                return list()
+
             user_info = util_web_user_info(response_json)
             stories = util_web_story(response_json)
-        except KeyError:
+            return stories, user_info
+        except (IndexError, KeyError, ValueError):
             raise APIResponseError
-
-        return stories, user_info
 
     def download(self, username):
         """Download Snapchat Story for `username`.
@@ -84,7 +96,7 @@ class SnapchatDL:
             if self.quiet is False:
                 logger.info("\033[91m{}\033[0m has no stories".format(username))
 
-            raise NoStoriesAvailable
+            raise NoStoriesFound
 
         if self.limit_story > -1:
             stories = stories[0 : self.limit_story]
