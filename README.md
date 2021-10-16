@@ -1,7 +1,7 @@
 <p>
   <div align="center">
   <h1>
-    Snapchat Public Stories Downloader.<br /> <br />
+    Snapchat Public Stories Downloader<br /> <br />
     <a href="https://pypi.python.org/pypi/snapchat-dl">
       <img
         src="https://img.shields.io/pypi/v/snapchat-dl.svg?cacheSeconds=360"
