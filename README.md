@@ -10,6 +10,12 @@
     </a>
     <a href="https://pypi.python.org/pypi/snapchat-dl">
       <img
+        src="https://img.shields.io/pypi/wheel/snapchat-dl"
+        alt="Python Wheel"
+      />
+    </a>
+    <a href="https://pypi.python.org/pypi/snapchat-dl">
+      <img
         src="https://img.shields.io/github/workflow/status/skyme5/snapchat-dl/build?cacheSeconds=360"
         alt="CI"
       />
@@ -45,6 +51,7 @@
       />
     </a>
   </h1>
+  <a href="https://buymeacoffee.com/skyme5" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;" ></a>
   </div>
 </p>
 
