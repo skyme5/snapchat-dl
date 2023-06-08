@@ -90,6 +90,10 @@ class SnapchatDL:
         Returns:
             [bool]: story downloader
         """
+        stories_already_exists = 0
+        stories_downloaded = 0
+
+
         stories, snap_user = self._web_fetch_story(username)
 
         if len(stories) == 0:
@@ -125,11 +129,18 @@ class SnapchatDL:
                     dump_response(media_json, filename_json)
 
                 media_output = os.path.join(dir_name, filename)
+                
+                if os.path.isfile(media_output):
+                    stories_already_exists +=1
+                    continue
+
+
                 executor.submit(
                     download_url, media_url, media_output, self.sleep_interval
                 )
+                stories_downloaded+=1
 
         except KeyboardInterrupt:
             executor.shutdown(wait=False)
 
-        logger.info("[✔] {} stories downloaded".format(username, len(stories)))
+        logger.info("[✔] {} stories downloaded, {} downloaded, {} already exists.".format(username, stories_downloaded, stories_already_exists)) #len(stories)))
