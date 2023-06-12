@@ -131,5 +131,4 @@ class SnapchatDL:
 
         except KeyboardInterrupt:
             executor.shutdown(wait=False)
-
-        logger.info("[✔] {} stories downloaded".format(username, len(stories)))
+        executor.shutdown(wait=True)
