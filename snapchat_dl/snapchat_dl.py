@@ -90,6 +90,7 @@ class SnapchatDL:
         Returns:
             [bool]: story downloader
         """
+        story_download_count = 0
         stories, snap_user = self._web_fetch_story(username)
 
         if len(stories) == 0:
@@ -125,6 +126,11 @@ class SnapchatDL:
                     dump_response(media_json, filename_json)
 
                 media_output = os.path.join(dir_name, filename)
+
+                # # Check if file exists
+                if not os.path.isfile(media_output):
+                    story_download_count += 1
+
                 executor.submit(
                     download_url, media_url, media_output, self.sleep_interval
                 )
