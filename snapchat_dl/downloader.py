@@ -31,10 +31,11 @@ def download_url(url: str, dest: str, sleep_interval: int):
     if response.status_code != requests.codes.get("ok"):
         raise response.raise_for_status()
 
-    if os.path.isfile(dest) and os.path.getsize(dest) == response.headers.get(
-        "content-length"
-    ):
-        raise FileExistsError
+    # This could mabye be used for a --verify argument? 
+    # if os.path.isfile(dest) and os.path.getsize(dest) == response.headers.get(
+    #     "content-length"
+    # ):
+    #     raise FileExistsError
 
     if os.path.isfile(dest) and os.path.getsize(dest) == 0:
         os.remove(dest)
