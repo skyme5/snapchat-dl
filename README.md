@@ -2,7 +2,7 @@
   <div align="center">
   <h1>
     Snapchat Public Stories Downloader<br /> <br />
-    <a href="https://pypi.python.org/pypi/snapchat-dl">
+    <!-- <a href="https://pypi.python.org/pypi/snapchat-dl">
       <img
         src="https://img.shields.io/pypi/v/snapchat-dl.svg?cacheSeconds=360"
         alt="Python Package"
@@ -49,10 +49,8 @@
         src="https://img.shields.io/badge/License-MIT-blue.svg"
         alt="License: MIT"
       />
-    </a>
+    </a> -->
   </h1>
-  <a href="https://buymeacoffee.com/skyme5" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;" ></a>
-  </div>
 </p>
 
 ### Installation
