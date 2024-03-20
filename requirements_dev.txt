@@ -1,5 +1,5 @@
 bandit==1.6.2
-black==19.10b0
+black==24.3.0
 blacken-docs==1.7.0
 bump2version==0.5.11
 coverage==4.5.4
