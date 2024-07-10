@@ -12,13 +12,13 @@
                 "id": "1PgHW1XZSgWteDhyTiIFbgAAgcnlmYnB0ZWpiAXxms2FCAXxms17GAAAAAA",
                 "media": {
                     "type": "VIDEO",
-                    "mediaUrl": "https://filesamples.com/samples/video/mp4/sample_640x360.mp4",
-                    "mediaStreamingUrl": "https://filesamples.com/samples/video/mp4/sample_640x360.mp4",
-                    "mediaPreviewUrl": "https://filesamples.com/samples/video/mp4/sample_640x360.mp4"
+                    "mediaUrl": "https://sample-videos.com/video321/mp4/240/big_buck_bunny_240p_1mb.mp4",
+                    "mediaStreamingUrl": "https://sample-videos.com/video321/mp4/240/big_buck_bunny_240p_1mb.mp4",
+                    "mediaPreviewUrl": "https://sample-videos.com/video321/mp4/240/big_buck_bunny_240p_1mb.mp4"
                 },
                 "overlayImage": {
-                    "mediaUrl": "https://filesamples.com/samples/video/mp4/sample_640x360.mp4",
-                    "mediaStreamingUrl": "https://filesamples.com/samples/video/mp4/sample_640x360.mp4"
+                    "mediaUrl": "https://sample-videos.com/video321/mp4/240/big_buck_bunny_240p_1mb.mp4",
+                    "mediaStreamingUrl": "https://sample-videos.com/video321/mp4/240/big_buck_bunny_240p_1mb.mp4"
                 },
                 "captureTimeSecs": "1633810603"
             },
@@ -26,7 +26,7 @@
                 "id": "1PgHW1XZSgWteDhyTiIFbgAAgZWZqZ2t2ZGN4AXxpJwZoAXxpJwRfAAAAAA",
                 "media": {
                     "type": "IMAGE",
-                    "mediaUrl": "https://filesamples.com/samples/video/mp4/sample_640x360.mp4"
+                    "mediaUrl": "https://sample-videos.com/video321/mp4/240/big_buck_bunny_240p_1mb.mp4"
                 },
                 "captureTimeSecs": "1633851737"
             },
@@ -34,7 +34,7 @@
                 "id": "1PgHW1XZSgWteDhyTiIFbgAAgdGlyeXpodGx4AXxpR4jsAXxpR4XzAAAAAA",
                 "media": {
                     "type": "IMAGE",
-                    "mediaUrl": "https://filesamples.com/samples/video/mp4/sample_640x360.mp4"
+                    "mediaUrl": "https://sample-videos.com/video321/mp4/240/big_buck_bunny_240p_1mb.mp4"
                 },
                 "captureTimeSecs": "1633853867"
             },
@@ -42,7 +42,7 @@
                 "id": "1PgHW1XZSgWteDhyTiIFbgAAgdnJlc2hjeWd5AXxqhQjjAXxqhQaeAAAAAA",
                 "media": {
                     "type": "IMAGE",
-                    "mediaUrl": "https://filesamples.com/samples/video/mp4/sample_640x360.mp4"
+                    "mediaUrl": "https://sample-videos.com/video321/mp4/240/big_buck_bunny_240p_1mb.mp4"
                 },
                 "captureTimeSecs": "1633874675"
             }
