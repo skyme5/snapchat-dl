@@ -22,7 +22,10 @@ class TestSnapchat_dl(unittest.TestCase):
     def setUp(self):
         """Set up test fixtures."""
         self.snapchat_dl = SnapchatDL(
-            limit_story=10, quiet=True, directory_prefix=".test-data", dump_json=True,
+            limit_story=10,
+            quiet=True,
+            directory_prefix=".test-data",
+            dump_json=True,
         )
         self.test_url = "https://filesamples.com/samples/video/mp4/sample_640x360.mp4"
         self.test_url404 = "https://google.com/error.html"
@@ -43,7 +46,7 @@ class TestSnapchat_dl(unittest.TestCase):
 
     def test_invalid_username(self):
         """Test snapchat_dl Stories are not available."""
-        with self.assertRaises(UserNotFoundError):
+        with self.assertRaises(NoStoriesFound):
             self.snapchat_dl.download("username")
 
     @mock.patch("snapchat_dl.snapchat_dl.SnapchatDL._api_response")

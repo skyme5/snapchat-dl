@@ -20,7 +20,8 @@ class Test_utils(unittest.TestCase):
     def test_strf_time(self):
         """Test strf_time."""
         self.assertEqual(
-            strf_time(978307200, "%Y-%m-%dT%H-%M-%S"), "2001-01-01T00-00-00",
+            strf_time(978307200, "%Y-%m-%dT%H-%M-%S"),
+            "2001-01-01T00-00-00",
         )
 
     def test_search_usernames(self):
