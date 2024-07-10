@@ -27,7 +27,9 @@ class TestSnapchat_dl(unittest.TestCase):
             directory_prefix=".test-data",
             dump_json=True,
         )
-        self.test_url = "https://filesamples.com/samples/video/mp4/sample_640x360.mp4"
+        self.test_url = (
+            "https://sample-videos.com/video321/mp4/240/big_buck_bunny_240p_1mb.mp4"
+        )
         self.test_url404 = "https://google.com/error.html"
         self.username = "invalidusername"
         self.html = open(
