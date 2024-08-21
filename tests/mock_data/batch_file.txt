@@ -1,4 +1,3 @@
 username1
 user.name2
-23
 user_name

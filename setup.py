@@ -27,7 +27,11 @@ setup(
     url="https://github.com/skyme5/snapchat-dl",
     author="Aakash Gajjar",
     author_email="skyqutip@gmail.com",
-    entry_points={"console_scripts": ["snapchat-dl=snapchat_dl.app:main",],},
+    entry_points={
+        "console_scripts": [
+            "snapchat-dl=snapchat_dl.app:main",
+        ],
+    },
     include_package_data=True,
     install_requires=requirements,
     test_suite="tests",
@@ -45,11 +49,5 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Natural Language :: English",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.5",
-        "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7",
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9",
-        "Programming Language :: Python :: 3.10",
     ],
 )

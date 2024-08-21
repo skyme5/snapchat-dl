@@ -16,7 +16,7 @@
     </a>
     <a href="https://pypi.python.org/pypi/snapchat-dl">
       <img
-        src="https://img.shields.io/github/workflow/status/skyme5/snapchat-dl/build?cacheSeconds=360"
+        src="https://img.shields.io/github/actions/workflow/status/skyme5/snapchat-dl/continuous-integration-pip.yml?cacheSeconds=360"
         alt="CI"
       />
     </a>

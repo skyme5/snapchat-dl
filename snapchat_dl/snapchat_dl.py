@@ -1,4 +1,5 @@
 """The Main Snapchat Downloader Class."""
+
 import concurrent.futures
 import json
 import os
@@ -34,7 +35,7 @@ class SnapchatDL:
         self.sleep_interval = sleep_interval
         self.quiet = quiet
         self.dump_json = dump_json
-        self.endpoint_web = "https://story.snapchat.com/@{}"
+        self.endpoint_web = "https://www.snapchat.com/add/{}/"
         self.regexp_web_json = (
             r'<script\s*id="__NEXT_DATA__"\s*type="application\/json">([^<]+)<\/script>'
         )
@@ -75,9 +76,16 @@ class SnapchatDL:
                     return content["props"]["pageProps"]["story"]["snapList"]
                 return list()
 
+            def util_web_extract(content: dict):
+                if "curatedHighlights" in content["props"]["pageProps"]:
+                    return content["props"]["pageProps"]["curatedHighlights"]
+                return list()
+
             user_info = util_web_user_info(response_json)
             stories = util_web_story(response_json)
-            return stories, user_info
+            curatedHighlights = util_web_extract(response_json)
+            spotHighlights = util_web_extract(response_json)
+            return stories, user_info, curatedHighlights, spotHighlights
         except (IndexError, KeyError, ValueError):
             raise APIResponseError
 
@@ -90,7 +98,7 @@ class SnapchatDL:
         Returns:
             [bool]: story downloader
         """
-        stories, snap_user = self._web_fetch_story(username)
+        stories, snap_user, *_ = self._web_fetch_story(username)
 
         if len(stories) == 0:
             if self.quiet is False:

@@ -1,4 +1,5 @@
 """Tests for `snapchat_dl` package."""
+
 import os
 import shutil
 import unittest
@@ -17,7 +18,9 @@ class Test_downloader(unittest.TestCase):
 
     def setUp(self):
         """Set up test fixtures."""
-        self.test_url = "https://filesamples.com/samples/video/mp4/sample_640x360.mp4"
+        self.test_url = (
+            "https://sample-videos.com/video321/mp4/240/big_buck_bunny_240p_1mb.mp4"
+        )
         self.test_url404 = "https://google.com/error.html"
 
     def test_download_url(self):

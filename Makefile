@@ -52,7 +52,7 @@ lint: ## check style with flake8
 	black snapchat_dl tests
 
 test: clean-test ## run tests quickly with the default Python
-	pytest tests --cache-clear
+	pytest tests -s --cache-clear
 
 test-all: clean-test ## run tests on every Python version with tox
 	pytest tests --cache-clear
