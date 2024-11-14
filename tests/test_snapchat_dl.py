@@ -48,8 +48,8 @@ class TestSnapchat_dl(unittest.TestCase):
 
     def test_invalid_username(self):
         """Test snapchat_dl Stories are not available."""
-        with self.assertRaises(NoStoriesFound):
-            self.snapchat_dl.download("username")
+        with self.assertRaises(UserNotFoundError):
+            self.snapchat_dl.download("use=rname")
 
     @mock.patch("snapchat_dl.snapchat_dl.SnapchatDL._api_response")
     def test_api_error(self, api_response):

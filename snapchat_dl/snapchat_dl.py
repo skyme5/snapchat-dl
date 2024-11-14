@@ -43,7 +43,12 @@ class SnapchatDL:
 
     def _api_response(self, username):
         web_url = self.endpoint_web.format(username)
-        return requests.get(web_url).text
+        return requests.get(
+            web_url,
+            headers={
+                "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
+            },
+        ).text
 
     def _web_fetch_story(self, username):
         """Download user stories from Web.
