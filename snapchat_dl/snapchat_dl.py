@@ -39,7 +39,7 @@ class SnapchatDL:
         self.regexp_web_json = (
             r'<script\s*id="__NEXT_DATA__"\s*type="application\/json">([^<]+)<\/script>'
         )
-        self.reaponse_ok = requests.codes.get("ok")
+        self.response_ok = requests.codes.ok  # Fixed typo
 
     def _api_response(self, username):
         web_url = self.endpoint_web.format(username)
@@ -77,9 +77,10 @@ class SnapchatDL:
                     raise UserNotFoundError
 
             def util_web_story(content: dict):
-                if "story" in content["props"]["pageProps"]:
-                    return content["props"]["pageProps"]["story"]["snapList"]
-                return list()
+                story_data = content["props"]["pageProps"].get("story")
+                if isinstance(story_data, dict) and "snapList" in story_data:
+                    return story_data["snapList"]
+                return []
 
             def util_web_extract(content: dict):
                 if "curatedHighlights" in content["props"]["pageProps"]:
@@ -106,13 +107,13 @@ class SnapchatDL:
         stories, snap_user, *_ = self._web_fetch_story(username)
 
         if len(stories) == 0:
-            if self.quiet is False:
+            if not self.quiet:
                 logger.info("\033[91m{}\033[0m has no stories".format(username))
 
             raise NoStoriesFound
 
         if self.limit_story > -1:
-            stories = stories[0 : self.limit_story]
+            stories = stories[: self.limit_story]
 
         logger.info("[+] {} has {} stories".format(username, len(stories)))
 
@@ -126,6 +127,7 @@ class SnapchatDL:
                 date_str = strf_time(timestamp, "%Y-%m-%d")
 
                 dir_name = os.path.join(self.directory_prefix, username, date_str)
+                os.makedirs(dir_name, exist_ok=True)
 
                 filename = strf_time(timestamp, "%Y-%m-%d_%H-%M-%S {} {}.{}").format(
                     snap_id, username, MEDIA_TYPE[media_type]
