@@ -8,4 +8,4 @@ pytest==8.2.2
 reorder_python_imports==3.13.0
 Sphinx==7.3.7
 watchdog==4.0.1
-wheel==0.43.0
+wheel==0.46.2
