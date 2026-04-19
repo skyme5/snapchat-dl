@@ -1,3 +1,35 @@
+
+<div align="right">
+  <details>
+    <summary >🌐 Language</summary>
+    <div>
+      <div align="center">
+        <a href="https://openaitx.github.io/view.html?user=skyme5&project=snapchat-dl&lang=en">English</a>
+        | <a href="https://openaitx.github.io/view.html?user=skyme5&project=snapchat-dl&lang=zh-CN">简体中文</a>
+        | <a href="https://openaitx.github.io/view.html?user=skyme5&project=snapchat-dl&lang=zh-TW">繁體中文</a>
+        | <a href="https://openaitx.github.io/view.html?user=skyme5&project=snapchat-dl&lang=ja">日本語</a>
+        | <a href="https://openaitx.github.io/view.html?user=skyme5&project=snapchat-dl&lang=ko">한국어</a>
+        | <a href="https://openaitx.github.io/view.html?user=skyme5&project=snapchat-dl&lang=hi">हिन्दी</a>
+        | <a href="https://openaitx.github.io/view.html?user=skyme5&project=snapchat-dl&lang=th">ไทย</a>
+        | <a href="https://openaitx.github.io/view.html?user=skyme5&project=snapchat-dl&lang=fr">Français</a>
+        | <a href="https://openaitx.github.io/view.html?user=skyme5&project=snapchat-dl&lang=de">Deutsch</a>
+        | <a href="https://openaitx.github.io/view.html?user=skyme5&project=snapchat-dl&lang=es">Español</a>
+        | <a href="https://openaitx.github.io/view.html?user=skyme5&project=snapchat-dl&lang=it">Italiano</a>
+        | <a href="https://openaitx.github.io/view.html?user=skyme5&project=snapchat-dl&lang=ru">Русский</a>
+        | <a href="https://openaitx.github.io/view.html?user=skyme5&project=snapchat-dl&lang=pt">Português</a>
+        | <a href="https://openaitx.github.io/view.html?user=skyme5&project=snapchat-dl&lang=nl">Nederlands</a>
+        | <a href="https://openaitx.github.io/view.html?user=skyme5&project=snapchat-dl&lang=pl">Polski</a>
+        | <a href="https://openaitx.github.io/view.html?user=skyme5&project=snapchat-dl&lang=ar">العربية</a>
+        | <a href="https://openaitx.github.io/view.html?user=skyme5&project=snapchat-dl&lang=fa">فارسی</a>
+        | <a href="https://openaitx.github.io/view.html?user=skyme5&project=snapchat-dl&lang=tr">Türkçe</a>
+        | <a href="https://openaitx.github.io/view.html?user=skyme5&project=snapchat-dl&lang=vi">Tiếng Việt</a>
+        | <a href="https://openaitx.github.io/view.html?user=skyme5&project=snapchat-dl&lang=id">Bahasa Indonesia</a>
+        | <a href="https://openaitx.github.io/view.html?user=skyme5&project=snapchat-dl&lang=as">অসমীয়া</
+      </div>
+    </div>
+  </details>
+</div>
+
 <p>
   <div align="center">
   <h1>
